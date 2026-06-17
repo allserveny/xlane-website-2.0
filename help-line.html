@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>24/7 Help Line — XLane Rentals</title>
+<meta name="description" content="XLane Rentals 24/7 help line for active renters needing support before, during, or after their reservation."/>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<link href="css/styles.css" rel="stylesheet"/>
+</head>
+<body>
+<nav>
+  <a class="nav-logo" href="index.html">
+    <img src="assets/images/logo.png" alt="XLane Rentals" class="nav-logo-img">
+  </a>
+  <div class="nav-links" id="navLinks">
+    <a href="index.html">Home</a>
+    <a href="book.html">Book Now</a>
+    <a href="about.html">About Us</a>
+    <a href="contact.html">Contact</a>
+    <a href="book.html" class="nav-cta">Reserve a Car →</a>
+  </div>
+  <div class="hamburger" id="hamburger" onclick="toggleMenu()">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+<div class="page">
+  <div class="book-hero" style="padding-bottom:80px;">
+    <div class="hero-badge" style="margin:0 auto 20px;">🔴 Support Available 24/7</div>
+    <h1>Need Help During Your Rental?</h1>
+    <p>XLane Rentals provides support for active renters before, during, and after their reservation. If you need immediate assistance, contact our support team.</p>
+    <div style="display:flex; gap:14px; flex-wrap:wrap; justify-content:center; margin-top:28px;">
+      <a class="btn-primary" href="tel:+19297524123">📞 Call Now: (929) 752-4123</a>
+      <a class="btn-outline" href="sms:+19297524123">💬 Text Now: (929) 752-4123</a>
+      <a class="btn-outline" href="mailto:admin@xlanerentals.com">✉️ Email Support</a>
+    </div>
+  </div>
+
+  <section class="section" style="background:var(--slate-bg); padding-top:72px;">
+    <div class="section-inner">
+      <div class="section-eyebrow">Support Categories</div>
+      <h2 class="section-title">How can we help you?</h2>
+      <div style="display:grid; grid-template-columns:repeat(2,1fr); gap:24px; margin-top:48px;">
+
+        <div class="hl-card">
+          <div class="hl-icon">🚨</div>
+          <div>
+            <h3>Immediate Assistance</h3>
+            <p>If you are currently in an active rental and need help, contact XLane Rentals as soon as possible. Our support team can assist with vehicle access, rental questions, extensions, returns, and urgent rental-related issues.</p>
+          </div>
+        </div>
+
+        <div class="hl-card">
+          <div class="hl-icon">🔧</div>
+          <div>
+            <h3>Vehicle Breakdown</h3>
+            <p>If the vehicle becomes disabled or unsafe to drive:</p>
+            <ul class="hl-list">
+              <li>Move to a safe location if possible.</li>
+              <li>Turn on hazard lights.</li>
+              <li>Do not continue driving if the vehicle may be unsafe.</li>
+              <li>Contact XLane Rentals immediately.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="hl-card hl-card-wide">
+          <div class="hl-icon">⚠️</div>
+          <div>
+            <h3>Accident Reporting</h3>
+            <p>If you are involved in an accident:</p>
+            <ul class="hl-list">
+              <li>Make sure everyone is safe.</li>
+              <li><strong>NEVER admit fault at the scene without speaking with our team.</strong></li>
+              <li>Take as many photos as possible of all vehicles involved before they are moved, when safe to do so.</li>
+              <li>Photograph the other vehicle from multiple angles, including all visible damage.</li>
+              <li>Capture clear photos of the other vehicle's license plate, registration, VIN, and the driver's license and insurance ID card.</li>
+              <li>Take photos of the accident scene, road conditions, traffic signs, skid marks, and any other relevant details.</li>
+              <li>Notify XLane Rentals immediately.</li>
+            </ul>
+            <div class="hl-alert">
+              <strong>Important:</strong> Even if you believe the accident was not your fault, thorough documentation is critical. Photos of the other vehicle, its license plate, and the other driver's information may be necessary to establish responsibility and pursue recovery from the at-fault party. Failure to obtain sufficient documentation may make it difficult to recover damages from the responsible party.
+            </div>
+          </div>
+        </div>
+
+        <div class="hl-card">
+          <div class="hl-icon">🔑</div>
+          <div>
+            <h3>Lockout Assistance</h3>
+            <p>If you are locked out of the vehicle or having trouble accessing the vehicle, contact our support team. We will guide you through the next steps based on your reservation and vehicle access method.</p>
+          </div>
+        </div>
+
+        <div class="hl-card">
+          <div class="hl-icon">⏱️</div>
+          <div>
+            <h3>Rental Extensions</h3>
+            <p>Need more time? Contact XLane Rentals before your scheduled return time to request an extension. Extensions are subject to availability and must be approved before the rental period ends.</p>
+          </div>
+        </div>
+
+        <div class="hl-card">
+          <div class="hl-icon">🔁</div>
+          <div>
+            <h3>Vehicle Return Help</h3>
+            <p>If you need help with return instructions, parking location, fuel level, or key placement, contact support before completing your return.</p>
+          </div>
+        </div>
+
+        <div class="hl-card">
+          <div class="hl-icon">💳</div>
+          <div>
+            <h3>Security Deposit Questions</h3>
+            <p>Security deposits are refunded <strong>10 business days</strong> after the vehicle is returned. Before a deposit is released, the rental is reviewed for any outstanding items such as damages, tolls, tickets, fuel charges, or other pending rental-related charges. Once the review is complete, any eligible refund will be processed to the original payment method.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact strip -->
+  <div class="trust-bar" style="padding:48px 5%;">
+    <div style="max-width:800px; margin:0 auto; text-align:center;">
+      <h2 style="font-family:'Sora',sans-serif; font-size:1.6rem; font-weight:800; color:var(--white); margin-bottom:10px;">Still need help?</h2>
+      <p style="color:var(--steel); margin-bottom:28px;">Our team is standing by. Choose the fastest way to reach us.</p>
+      <div style="display:flex; gap:14px; flex-wrap:wrap; justify-content:center;">
+        <a class="btn-primary" href="tel:+19297524123">📞 (929) 752-4123</a>
+        <a class="btn-outline" href="sms:+19297524123">💬 Text Us</a>
+        <a class="btn-outline" href="mailto:admin@xlanerentals.com">✉️ admin@xlanerentals.com</a>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-bottom" style="border-top:none;padding-top:0">
+        <div class="footer-copy">© 2026 XLane Rentals · Proudly serving New Jersey</div>
+        <div class="footer-legal">
+          <a href="terms.html" style="color:var(--steel)">Terms</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+</div>
+<script src="js/script.js"></script>
+</body>
+</html>

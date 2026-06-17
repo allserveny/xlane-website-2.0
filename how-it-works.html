@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>How It Works — XLane Rentals</title>
+<meta name="description" content="See how XLane Rentals contactless car rental works, from booking to pickup to return."/>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<link href="css/styles.css" rel="stylesheet"/>
+</head>
+<body>
+<nav>
+  <a class="nav-logo" href="index.html">
+    <img src="assets/images/logo.png" alt="XLane Rentals" class="nav-logo-img">
+  </a>
+  <div class="nav-links" id="navLinks">
+    <a href="index.html">Home</a>
+    <a href="book.html">Book Now</a>
+    <a href="about.html">About Us</a>
+    <a href="contact.html">Contact</a>
+    <a href="book.html" class="nav-cta">Reserve a Car →</a>
+  </div>
+  <div class="hamburger" id="hamburger" onclick="toggleMenu()">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+<div class="page">
+  <div class="book-hero">
+    <h1>How Contactless Rentals Work</h1>
+    <p>No office. No waiting. No key exchange. Here's exactly what to expect from start to finish.</p>
+  </div>
+
+  <section class="section" style="background:var(--slate-bg)">
+    <div class="section-inner">
+      <div class="section-eyebrow">The Process</div>
+      <h2 class="section-title">Simple. Seamless. Contactless.</h2>
+      <p class="section-sub">Whether your vehicle is parked on a neighborhood street or in a garage, the experience is the same — fast, clear, and fully guided.</p>
+
+      <!-- Step-by-step visual -->
+      <div style="margin-top:52px; display:flex; flex-direction:column; gap:0;">
+
+        <div class="hiw-step">
+          <div class="hiw-step-left">
+            <div class="hiw-num">01</div>
+            <div class="hiw-connector"></div>
+          </div>
+          <div class="hiw-card">
+            <div class="hiw-icon">📱</div>
+            <div>
+              <h3>Reserve Online in Minutes</h3>
+              <p>Choose your vehicle, select your pickup zone, enter your dates, and submit your driver's license. Booking is confirmed in minutes — no phone calls, no paperwork.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="hiw-step">
+          <div class="hiw-step-left">
+            <div class="hiw-num">02</div>
+            <div class="hiw-connector"></div>
+          </div>
+          <div class="hiw-card">
+            <div class="hiw-icon">📍</div>
+            <div>
+              <h3>Receive Your Pickup Instructions</h3>
+              <p>After booking, you'll receive a confirmation with your exact pickup instructions. These vary by vehicle location:</p>
+              <div class="hiw-split">
+                <div class="hiw-split-card">
+                  <div class="hiw-split-icon">🛣️</div>
+                  <strong>Street Parking</strong>
+                  <p>You'll receive a GPS pin dropping you to the exact street location of the vehicle within the neighborhood. Simply walk or drive to the pin.</p>
+                </div>
+                <div class="hiw-split-card">
+                  <div class="hiw-split-icon">🅿️</div>
+                  <strong>Parking Lot or Garage</strong>
+                  <p>You'll receive the facility name, address, and your exact parking spot number so you can go directly to the vehicle without searching.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="hiw-step">
+          <div class="hiw-step-left">
+            <div class="hiw-num">03</div>
+            <div class="hiw-connector"></div>
+          </div>
+          <div class="hiw-card">
+            <div class="hiw-icon">✅</div>
+            <div>
+              <h3>Complete Check-In & Access the Vehicle</h3>
+              <p>When you arrive at the vehicle, follow the check-in steps sent to you. This typically includes verifying your identity and completing a quick pre-rental inspection photo. Once complete, you'll be able to access the vehicle. Keys are inside — you're ready to drive.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="hiw-step">
+          <div class="hiw-step-left">
+            <div class="hiw-num">04</div>
+            <div class="hiw-connector"></div>
+          </div>
+          <div class="hiw-card">
+            <div class="hiw-icon">🚗</div>
+            <div>
+              <h3>Drive — You're All Set</h3>
+              <p>Enjoy your rental. If you have any questions during your rental period, our support team is available to assist you. Extensions can be requested via SMS before your scheduled return time.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="hiw-step">
+          <div class="hiw-step-left">
+            <div class="hiw-num">05</div>
+            <div class="hiw-connector" style="display:none"></div>
+          </div>
+          <div class="hiw-card">
+            <div class="hiw-icon">🔁</div>
+            <div>
+              <h3>Return the Vehicle</h3>
+              <p>Drive back to the same pickup location. Leave the key inside the vehicle, and text our team to confirm your drop-off. That's it — no drop-off desk, no waiting, no hassle.</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ-style clarifications -->
+  <section class="section">
+    <div class="section-inner">
+      <div class="section-eyebrow">Good to Know</div>
+      <h2 class="section-title">Common questions about pickup</h2>
+      <div style="display:grid; grid-template-columns: repeat(2,1fr); gap:20px; margin-top:40px;">
+        <div class="value-card">
+          <div class="value-icon">🔍</div>
+          <h3>What if I can't find the car?</h3>
+          <p>Contact our team immediately by phone or text. We'll troubleshoot with you in real time and guide you directly to the vehicle.</p>
+        </div>
+        <div class="value-card">
+          <div class="value-icon">🕐</div>
+          <h3>What if I'm running late to pickup?</h3>
+          <p>Just text us. We'll do our best to accommodate. If another renter is scheduled after you, we may need to adjust, but we always communicate.</p>
+        </div>
+        <div class="value-card">
+          <div class="value-icon">📸</div>
+          <h3>Do I need to photograph the car?</h3>
+          <p>Yes — you'll take pre-rental photos as part of check-in. This protects you by documenting the vehicle's condition before your trip starts.</p>
+        </div>
+        <div class="value-card">
+          <div class="value-icon">⛽</div>
+          <h3>What about fuel?</h3>
+          <p>Vehicles are provided with fuel. Please return the vehicle with at least the same fuel level as when you received it.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="cta-banner">
+    <h2>Ready to experience it yourself?</h2>
+    <p>The whole process takes less than 5 minutes to book.</p>
+    <a class="btn-navy" href="book.html">Reserve a Vehicle →</a>
+  </div>
+
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-bottom" style="border-top:none;padding-top:0">
+        <div class="footer-copy">© 2026 XLane Rentals · All reservations subject to Terms of Service</div>
+        <div class="footer-legal">
+          <a href="privacy.html" style="color:var(--steel)">Privacy</a>
+          <a href="terms.html" style="color:var(--steel)">Terms</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+</div>
+<script src="js/script.js"></script>
+</body>
+</html>

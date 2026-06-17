@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Contact — XLane Rentals</title>
+<meta name="description" content="Get in touch with XLane Rentals for questions about bookings, vehicles, or support."/>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<link href="css/styles.css" rel="stylesheet"/>
+</head>
+<body>
+<nav>
+  <a class="nav-logo" href="index.html">
+    <img src="assets/images/logo.png" alt="XLane Rentals" class="nav-logo-img">
+  </a>
+  <div class="nav-links" id="navLinks">
+    <a href="index.html">Home</a>
+    <a href="book.html">Book Now</a>
+    <a href="about.html">About Us</a>
+    <a class="active" href="contact.html">Contact</a>
+    <a href="book.html" class="nav-cta">Reserve a Car →</a>
+  </div>
+  <div class="hamburger" id="hamburger" onclick="toggleMenu()">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+<div class="page">
+  <div class="contact-hero">
+    <h1>We're Here When You Need Us</h1>
+    <p>No chatbots. No hold music. Real XLane Rentals team members respond within minutes — day or night.</p>
+  </div>
+  <div class="contact-grid">
+    <div class="contact-info">
+      <div class="contact-card">
+        <div class="contact-card-icon">📞</div>
+        <div>
+          <h3>Phone & Text (24/7)</h3>
+          <p><a href="tel:+19297524123">(929) 752-4123</a><br>Call or text any time. Emergencies get priority — we answer fast.</p>
+        </div>
+      </div>
+      <div class="contact-card">
+        <div class="contact-card-icon">✉️</div>
+        <div>
+          <h3>Email Support</h3>
+          <p><a href="mailto:admin@xlanerentals.com">admin@xlanerentals.com</a><br>Non-urgent questions answered within regular business hours (9am–6pm).</p>
+        </div>
+      </div>
+      <div class="contact-card">
+        <div class="contact-card-icon">💬</div>
+        <div>
+          <h3>SMS / Text</h3>
+          <p><a href="sms:+19297524123">(929) 752-4123</a><br>Quickest response channel for existing renters. Booking confirmations are also sent here.</p>
+        </div>
+      </div>
+      <div class="contact-card">
+        <div class="contact-card-icon">🏢</div>
+        <div>
+          <h3>Business Inquiries</h3>
+          <p><a href="mailto:xlanerentals@gmail.com">xlanerentals@gmail.com</a><br>For corporate accounts, fleet partnerships, or press. XLane Rentals, registered in NJ.</p>
+        </div>
+      </div>
+      <div class="contact-card" style="background:var(--slate-bg)">
+        <div class="contact-card-icon">⏰</div>
+        <div>
+          <h3>Response Times</h3>
+          <p style="line-height:1.9">
+            📞 Phone: <strong>5–10 min</strong><br>
+            💬 Text: <strong>2–5 min</strong><br>
+            ✉️ Email: <strong>Within 24 hours</strong><br>
+            <span style="color:var(--success);font-weight:600">● Currently Online</span>
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="contact-form-card">
+      <h2>Send Us a Message</h2>
+      <div id="contactForm">
+        <div class="form-row">
+          <div class="form-group">
+            <label>First Name</label>
+            <input type="text" placeholder="Jane"/>
+          </div>
+          <div class="form-group">
+            <label>Last Name</label>
+            <input type="text" placeholder="Smith"/>
+          </div>
+        </div>
+        <div class="form-group" style="margin-bottom:16px">
+          <label>Email Address</label>
+          <input type="email" placeholder="jane@email.com"/>
+        </div>
+        <div class="form-group" style="margin-bottom:16px">
+          <label>Subject</label>
+          <select>
+            <option>Question about booking</option>
+            <option>Issue with existing rental</option>
+            <option>Cancel or modify booking</option>
+            <option>Insurance or coverage question</option>
+            <option>Report a vehicle issue</option>
+            <option>Business or partnership inquiry</option>
+            <option>Other</option>
+          </select>
+        </div>
+        <div class="form-group" style="margin-bottom:24px">
+          <label>Message</label>
+          <textarea placeholder="Tell us what's on your mind. Include your booking reference if you have one."></textarea>
+        </div>
+        <div class="info-box">
+          <div class="info-box-icon">⚡</div>
+          <p>For <strong>urgent matters</strong> during an active rental, please call or text <strong>(929) 752-4123</strong> directly rather than using this form.</p>
+        </div>
+        <button class="btn-primary" style="width:100%;justify-content:center;margin-top:8px" onclick="submitContact()">Send Message →</button>
+      </div>
+      <div class="contact-success" id="contactSuccess">
+        <div style="font-size:2.5rem;margin-bottom:12px">✅</div>
+        <h3>Message received!</h3>
+        <p>We'll get back to you at the email address you provided within 2 hours. For urgent matters, call <a href="tel:+19297524123" style="color:var(--amber)">(929) 752-4123</a> any time.</p>
+      </div>
+    </div>
+  </div>
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-bottom" style="border-top:none;padding-top:0">
+        <div class="footer-copy">© 2026 XLane Rentals · Proudly serving New Jersey</div>
+        <div class="footer-legal">
+          <a href="privacy.html" style="color:var(--steel)">Privacy</a>
+          <a href="terms.html" style="color:var(--steel)">Terms</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+</div>
+<script src="js/script.js"></script>
+</body>
+</html>

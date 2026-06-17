@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Reserve a Car — XLane Rentals</title>
+<meta name="description" content="Reserve your XLane Rentals vehicle online in minutes. Fully contactless pickup across New Jersey."/>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<link href="css/styles.css" rel="stylesheet"/>
+</head>
+<body>
+<nav>
+  <a class="nav-logo" href="index.html">
+    <img src="assets/images/logo.png" alt="XLane Rentals" class="nav-logo-img">
+  </a>
+  <div class="nav-links" id="navLinks">
+    <a href="index.html">Home</a>
+    <a class="active" href="book.html">Book Now</a>
+    <a href="about.html">About Us</a>
+    <a href="contact.html">Contact</a>
+    <a href="book.html" class="nav-cta">Reserve a Car →</a>
+  </div>
+  <div class="hamburger" id="hamburger" onclick="toggleMenu()">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+<div class="page">
+  <div class="book-hero">
+    <h1>Reserve Your Vehicle</h1>
+    <p>Fully contactless. Confirmed in minutes. Takes under 5 to book.</p>
+  </div>
+  <!-- HQ Rental Software Booking Widget -->
+  <div style="max-width:1100px; margin:-20px auto 0; padding:0 5% 80px; position:relative; z-index:2;">
+    <div style="background:var(--white); border-radius:var(--radius-lg); box-shadow:var(--shadow-lg); padding:40px; border:1px solid var(--border); min-height:500px;">
+
+      <div class="info-box" style="margin-bottom:28px;">
+        <div class="info-box-icon">🔒</div>
+        <p><strong>Contactless pickup guaranteed.</strong> After booking you'll receive an exact GPS pin and pickup instructions. No office visit, no key exchange — ever.</p>
+      </div>
+
+      <!-- HQ Rental Software Integration -->
+      <script src="https://xlane.hqrentals.app/public/car-rental/integrations/assets/integrator"></script>
+      <div class="hq-rental-software-integration"
+           data-integrator_link="https://xlane.hqrentals.app/public/car-rental/integrations"
+           data-brand="fp0izht3-i8kx-zjvo-eao2-shbdj9y8bpep"
+           data-snippet="reservations"
+           data-skip_language=""
+           data-rate_type_uuid=""
+           data-referral=""
+           data-enable_auto_language_update="">
+      </div>
+
+    </div>
+  </div>
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-bottom" style="border-top:none;padding-top:0">
+        <div class="footer-copy">© 2026 XLane Rentals · All reservations subject to Terms of Service</div>
+        <div class="footer-legal">
+          <a href="privacy.html" style="color:var(--steel)">Privacy</a>
+          <a href="terms.html" style="color:var(--steel)">Terms</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+</div>
+<script src="js/script.js"></script>
+</body>
+</html>
