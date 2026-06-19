@@ -29,8 +29,8 @@
     <h1>We're Here When You Need Us</h1>
     <p>No chatbots. No hold music. Real XLane Rentals team members respond within minutes — day or night.</p>
   </div>
-  <div class="contact-grid">
-    <div class="contact-info">
+  <div class="contact-grid" style="grid-template-columns:1fr; max-width:900px;">
+    <div class="contact-info" style="display:grid; grid-template-columns:repeat(auto-fit, minmax(260px, 1fr)); gap:16px;">
       <div class="contact-card">
         <div class="contact-card-icon">📞</div>
         <div>
@@ -56,7 +56,7 @@
         <div class="contact-card-icon">🏢</div>
         <div>
           <h3>Business Inquiries</h3>
-          <p><a href="mailto:xlanerentals@gmail.com">xlanerentals@gmail.com</a><br>For corporate accounts, fleet partnerships, or press. XLane Rentals, registered in NJ.</p>
+          <p><a href="mailto:admin@xlanerentals.com">admin@xlanerentals.com</a><br>For corporate accounts, fleet partnerships, or press. XLane Rentals, registered in NJ.</p>
         </div>
       </div>
       <div class="contact-card" style="background:var(--slate-bg)">
@@ -72,51 +72,6 @@
         </div>
       </div>
     </div>
-    <div class="contact-form-card">
-      <h2>Send Us a Message</h2>
-      <div id="contactForm">
-        <div class="form-row">
-          <div class="form-group">
-            <label>First Name</label>
-            <input type="text" placeholder="Jane"/>
-          </div>
-          <div class="form-group">
-            <label>Last Name</label>
-            <input type="text" placeholder="Smith"/>
-          </div>
-        </div>
-        <div class="form-group" style="margin-bottom:16px">
-          <label>Email Address</label>
-          <input type="email" placeholder="jane@email.com"/>
-        </div>
-        <div class="form-group" style="margin-bottom:16px">
-          <label>Subject</label>
-          <select>
-            <option>Question about booking</option>
-            <option>Issue with existing rental</option>
-            <option>Cancel or modify booking</option>
-            <option>Insurance or coverage question</option>
-            <option>Report a vehicle issue</option>
-            <option>Business or partnership inquiry</option>
-            <option>Other</option>
-          </select>
-        </div>
-        <div class="form-group" style="margin-bottom:24px">
-          <label>Message</label>
-          <textarea placeholder="Tell us what's on your mind. Include your booking reference if you have one."></textarea>
-        </div>
-        <div class="info-box">
-          <div class="info-box-icon">⚡</div>
-          <p>For <strong>urgent matters</strong> during an active rental, please call or text <strong>(929) 752-4123</strong> directly rather than using this form.</p>
-        </div>
-        <button class="btn-primary" style="width:100%;justify-content:center;margin-top:8px" onclick="submitContact()">Send Message →</button>
-      </div>
-      <div class="contact-success" id="contactSuccess">
-        <div style="font-size:2.5rem;margin-bottom:12px">✅</div>
-        <h3>Message received!</h3>
-        <p>We'll get back to you at the email address you provided within 2 hours. For urgent matters, call <a href="tel:+19297524123" style="color:var(--amber)">(929) 752-4123</a> any time.</p>
-      </div>
-    </div>
   </div>
   <footer>
     <div class="footer-inner">
@@ -125,6 +80,7 @@
         <div class="footer-legal">
           <a href="privacy.html" style="color:var(--steel)">Privacy</a>
           <a href="terms.html" style="color:var(--steel)">Terms</a>
+          <a href="insurance-disclosure.html" style="color:var(--steel)">Insurance Disclosure</a>
         </div>
       </div>
     </div>
