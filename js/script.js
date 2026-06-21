@@ -17,3 +17,11 @@
     document.getElementById('contactForm').style.display = 'none';
     document.getElementById('contactSuccess').style.display = 'block';
   }
+
+  // Meta Pixel: treat clicks on any "Book Now / Reserve a Car" link as a Lead
+  document.addEventListener('click', function(e) {
+    var link = e.target.closest('a[href="book.html"]');
+    if (link && typeof fbq !== 'undefined') {
+      fbq('track', 'Lead');
+    }
+  });
