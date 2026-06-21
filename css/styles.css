@@ -634,7 +634,7 @@
   .social-icon.facebook:hover { box-shadow: 0 6px 16px rgba(24,119,242,0.50); }
   /* Header */
   .nav-social { display: inline-flex; align-items: center; gap: 8px; margin: 0 6px; }
-  .nav-social .social-icon { width: 34px; height: 34px; border-radius: 8px; }
+  .nav-social .social-icon { width: 34px; height: 34px; border-radius: 8px; padding: 0; }
   .nav-social .social-icon svg { width: 17px; height: 17px; }
   /* Footer brand column (home) */
   .footer-social { display: flex; gap: 12px; margin-top: 18px; }
