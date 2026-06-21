@@ -617,3 +617,27 @@
     .hl-actions { flex-direction:column; }
     .hl-actions .btn-primary, .hl-actions .btn-outline { width:100%; justify-content:center; }
   }
+
+
+  /* ── SOCIAL ICONS ── */
+  .social-icon {
+    display: inline-flex; align-items: center; justify-content: center;
+    width: 36px; height: 36px; border-radius: 9px;
+    color: #fff; text-decoration: none;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+  .social-icon svg { width: 18px; height: 18px; fill: currentColor; display: block; }
+  .social-icon.instagram { background: linear-gradient(45deg, #F58529 0%, #DD2A7B 45%, #8134AF 75%, #515BD4 100%); }
+  .social-icon.facebook { background: #1877F2; }
+  .social-icon:hover { transform: translateY(-2px); }
+  .social-icon.instagram:hover { box-shadow: 0 6px 16px rgba(221,42,123,0.45); }
+  .social-icon.facebook:hover { box-shadow: 0 6px 16px rgba(24,119,242,0.50); }
+  /* Header */
+  .nav-social { display: inline-flex; align-items: center; gap: 8px; margin: 0 6px; }
+  .nav-social .social-icon { width: 34px; height: 34px; border-radius: 8px; }
+  .nav-social .social-icon svg { width: 17px; height: 17px; }
+  /* Footer brand column (home) */
+  .footer-social { display: flex; gap: 12px; margin-top: 18px; }
+  .footer-social .social-icon { width: 40px; height: 40px; border-radius: 10px; }
+  /* Footer social row (simple footers) */
+  .footer-social-row { display: flex; justify-content: center; gap: 12px; margin-bottom: 22px; }
