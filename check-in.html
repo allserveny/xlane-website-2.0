@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Check-In — XLane Rentals</title>
+<meta name="description" content="Start your XLane Rentals reservation by completing your contactless check-in: verify your identity and payment method before pickup."/>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<link href="css/styles.css" rel="stylesheet"/>
+<!-- Meta Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '1013097894449447');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=1013097894449447&ev=PageView&noscript=1"
+/></noscript>
+<!-- End Meta Pixel Code -->
+<style>
+  /* Check-in page specific styles (kept local to this page for now) */
+  .ci-hero { padding: 64px 5% 40px; text-align: center; background: var(--slate-bg); }
+  .ci-hero h1 { font-family:'Sora',sans-serif; font-size: 2.1rem; font-weight: 800; color: var(--navy); margin-bottom: 12px; }
+  .ci-hero p { color: var(--text-muted); max-width: 620px; margin: 0 auto; line-height: 1.7; }
+  .ci-wrap { max-width: 760px; margin: -20px auto 0; padding: 0 5% 80px; position: relative; z-index: 2; }
+  .ci-card { background: var(--white); border-radius: var(--radius-lg); box-shadow: var(--shadow-lg); padding: 40px; border: 1px solid var(--border); }
+  .ci-notice {
+    background: rgba(199,68,42,0.07); border: 1px solid rgba(199,68,42,0.25);
+    border-radius: 10px; padding: 16px 18px; display: flex; gap: 12px; align-items: flex-start;
+    margin-bottom: 28px;
+  }
+  .ci-notice-icon { font-size: 1.1rem; margin-top: 1px; flex-shrink: 0; }
+  .ci-notice p { font-size: 0.85rem; color: #8a3320; line-height: 1.6; margin: 0; }
+  .ci-notice p strong { color: #6e2818; }
+  .ci-section-title { font-family:'Sora',sans-serif; font-weight: 700; font-size: 1rem; color: var(--navy); margin: 28px 0 14px; }
+  .ci-section-title:first-of-type { margin-top: 0; }
+  .ci-hint { font-size: 0.8rem; color: var(--text-muted); margin: -8px 0 14px; line-height: 1.6; }
+  .ci-upload {
+    display: block; border: 2px dashed var(--border); border-radius: 10px; padding: 22px;
+    text-align: center; cursor: pointer; transition: all 0.2s; position: relative;
+    overflow: hidden; background: var(--slate-bg);
+  }
+  .ci-upload:hover { border-color: var(--amber); background: rgba(232,160,32,0.05); }
+  .ci-upload.has-file { border-color: var(--success, #1e8a5e); background: rgba(30,138,94,0.05); }
+  .ci-upload input[type="file"] { position: absolute; inset: 0; opacity: 0; cursor: pointer; }
+  .ci-upload-icon { font-size: 1.6rem; margin-bottom: 6px; }
+  .ci-upload-label { font-weight: 600; font-size: 0.85rem; color: var(--navy); }
+  .ci-upload-sub { font-size: 0.76rem; color: var(--text-muted); margin-top: 4px; }
+  .ci-upload-filename { font-size: 0.78rem; color: #1a6644; font-weight: 600; margin-top: 6px; word-break: break-all; }
+  .ci-upload-thumb { max-height: 90px; border-radius: 6px; margin-top: 10px; display: none; }
+  .ci-card-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  @media (max-width: 600px) { .ci-card-grid { grid-template-columns: 1fr; } }
+  .ci-submit-row { margin-top: 32px; padding-top: 24px; border-top: 1px solid var(--border); text-align: center; }
+  .ci-submit-row .btn-primary { width: 100%; justify-content: center; cursor: pointer; border: none; font-family: inherit; }
+  .ci-required { color: #c7442a; }
+</style>
+</head>
+<body>
+<nav>
+  <a class="nav-logo" href="index.html">
+    <img src="assets/images/logo.png" alt="XLane Rentals" class="nav-logo-img">
+  </a>
+  <div class="nav-links" id="navLinks">
+    <a href="index.html">Home</a>
+    <a href="book.html">Book Now</a>
+    <a class="active" href="check-in.html">Check-In</a>
+    <a href="about.html">About Us</a>
+    <a href="contact.html">Contact</a>
+    <div class="nav-social">
+      <a class="social-icon instagram" href="https://www.instagram.com/xlanerentals/" target="_blank" rel="noopener" aria-label="Follow us on Instagram"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.16c3.2 0 3.58.01 4.85.07 1.17.05 1.8.25 2.23.41.56.22.96.48 1.38.9.42.42.68.82.9 1.38.16.42.36 1.06.41 2.23.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.05 1.17-.25 1.8-.41 2.23-.22.56-.48.96-.9 1.38-.42.42-.82.68-1.38.9-.42.16-1.06.36-2.23.41-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-1.17-.05-1.8-.25-2.23-.41a3.72 3.72 0 0 1-1.38-.9 3.72 3.72 0 0 1-.9-1.38c-.16-.42-.36-1.06-.41-2.23-.06-1.27-.07-1.65-.07-4.85s.01-3.58.07-4.85c.05-1.17.25-1.8.41-2.23.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.42-.16 1.06-.36 2.23-.41C8.42 2.17 8.8 2.16 12 2.16M12 0C8.74 0 8.33.01 7.05.07 5.78.13 4.9.33 4.14.63c-.79.31-1.46.72-2.13 1.38C1.35 2.68.94 3.35.63 4.14.33 4.9.13 5.78.07 7.05.01 8.33 0 8.74 0 12s.01 3.67.07 4.95c.06 1.27.26 2.15.56 2.91.31.79.72 1.46 1.38 2.13.67.66 1.34 1.07 2.13 1.38.76.3 1.64.5 2.91.56C8.33 23.99 8.74 24 12 24s3.67-.01 4.95-.07c1.27-.06 2.15-.26 2.91-.56.79-.31 1.46-.72 2.13-1.38.66-.67 1.07-1.34 1.38-2.13.3-.76.5-1.64.56-2.91.06-1.28.07-1.69.07-4.95s-.01-3.67-.07-4.95c-.06-1.27-.26-2.15-.56-2.91a5.88 5.88 0 0 0-1.38-2.13A5.88 5.88 0 0 0 19.86.63c-.76-.3-1.64-.5-2.91-.56C15.67.01 15.26 0 12 0Zm0 5.84a6.16 6.16 0 1 0 0 12.32 6.16 6.16 0 0 0 0-12.32ZM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8Zm6.41-10.85a1.44 1.44 0 1 0 0 2.88 1.44 1.44 0 0 0 0-2.88Z"/></svg></a>
+      <a class="social-icon facebook" href="https://www.facebook.com/profile.php?id=61575426762100" target="_blank" rel="noopener" aria-label="Follow us on Facebook"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M24 12.07C24 5.4 18.63 0 12 0S0 5.4 0 12.07C0 18.1 4.39 23.1 10.13 24v-8.44H7.08v-3.49h3.05V9.41c0-3.02 1.79-4.69 4.53-4.69 1.31 0 2.68.24 2.68.24v2.97h-1.51c-1.49 0-1.96.93-1.96 1.89v2.25h3.33l-.53 3.49h-2.8V24C19.61 23.1 24 18.1 24 12.07Z"/></svg></a>
+    </div>
+    <a href="book.html" class="nav-cta">Reserve a Car →</a>
+  </div>
+  <div class="hamburger" id="hamburger" onclick="toggleMenu()">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+
+<div class="page">
+  <div class="ci-hero">
+    <h1>Check In & Start Your Reservation</h1>
+    <p>Complete the quick verification below so we can release your vehicle. This takes about 2 minutes — have your driver's license and the card used for booking ready.</p>
+  </div>
+
+  <div class="ci-wrap">
+    <div class="ci-card">
+
+      <div class="ci-notice">
+        <div class="ci-notice-icon">⚠️</div>
+        <p><strong>Please do not approach or bother garage/parking lot employees.</strong> They are not affiliated with XLane Rentals in any way and are unable to assist with your reservation, vehicle access, or check-in. For any help, contact the XLane Rentals support team directly.</p>
+      </div>
+
+      <form id="checkinForm">
+
+        <div class="ci-section-title">1. Renter Information</div>
+        <div class="form-group form-full" style="margin-bottom: 22px;">
+          <label for="fullName">Full Legal Name <span class="ci-required">*</span></label>
+          <input type="text" id="fullName" name="fullName" placeholder="As it appears on your driver's license" required>
+        </div>
+
+        <div class="ci-section-title">2. Identity Verification Selfie</div>
+        <p class="ci-hint">Take a clear selfie of yourself holding your driver's license, with the rental car visible in the background.</p>
+        <label class="ci-upload" id="selfieUpload">
+          <input type="file" id="selfiePhoto" name="selfiePhoto" accept="image/*" capture="environment" required onchange="handleFile(this,'selfieUpload')">
+          <div class="ci-upload-icon">🤳</div>
+          <div class="ci-upload-label">Upload Selfie with License & Car</div>
+          <div class="ci-upload-sub">Tap to take or choose a photo</div>
+          <div class="ci-upload-filename"></div>
+          <img class="ci-upload-thumb">
+        </label>
+
+        <div class="ci-section-title">3. Payment Card Photos</div>
+        <p class="ci-hint">Upload clear photos of the front and back of the debit or credit card used to make this reservation.</p>
+        <div class="ci-card-grid">
+          <label class="ci-upload" id="cardFrontUpload">
+            <input type="file" id="cardFront" name="cardFront" accept="image/*" capture="environment" required onchange="handleFile(this,'cardFrontUpload')">
+            <div class="ci-upload-icon">💳</div>
+            <div class="ci-upload-label">Card — Front</div>
+            <div class="ci-upload-sub">Tap to take or choose a photo</div>
+            <div class="ci-upload-filename"></div>
+            <img class="ci-upload-thumb">
+          </label>
+          <label class="ci-upload" id="cardBackUpload">
+            <input type="file" id="cardBack" name="cardBack" accept="image/*" capture="environment" required onchange="handleFile(this,'cardBackUpload')">
+            <div class="ci-upload-icon">💳</div>
+            <div class="ci-upload-label">Card — Back</div>
+            <div class="ci-upload-sub">Tap to take or choose a photo</div>
+            <div class="ci-upload-filename"></div>
+            <img class="ci-upload-thumb">
+          </label>
+        </div>
+
+        <div class="ci-submit-row">
+          <button type="submit" class="btn-primary">Submit Check-In →</button>
+          <div class="form-nav-left" style="margin-top:14px;">Your information is used only to verify your reservation and is handled securely.</div>
+        </div>
+
+      </form>
+
+      <div class="success-screen" id="checkinSuccess">
+        <div class="success-icon">✅</div>
+        <h2>You're Checked In!</h2>
+        <p>Thanks, your information has been received. Our team will confirm everything is in order and your vehicle will be ready as scheduled. If you run into any issues, contact XLane Rentals directly — not the garage or parking staff.</p>
+        <a class="btn-primary" href="help-line.html">View Help Line</a>
+      </div>
+
+    </div>
+  </div>
+
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-social-row">
+        <a class="social-icon instagram" href="https://www.instagram.com/xlanerentals/" target="_blank" rel="noopener" aria-label="Follow us on Instagram"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.16c3.2 0 3.58.01 4.85.07 1.17.05 1.8.25 2.23.41.56.22.96.48 1.38.9.42.42.68.82.9 1.38.16.42.36 1.06.41 2.23.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.05 1.17-.25 1.8-.41 2.23-.22.56-.48.96-.9 1.38-.42.42-.82.68-1.38.9-.42.16-1.06.36-2.23.41-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-1.17-.05-1.8-.25-2.23-.41a3.72 3.72 0 0 1-1.38-.9 3.72 3.72 0 0 1-.9-1.38c-.16-.42-.36-1.06-.41-2.23-.06-1.27-.07-1.65-.07-4.85s.01-3.58.07-4.85c.05-1.17.25-1.8.41-2.23.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.42-.16 1.06-.36 2.23-.41C8.42 2.17 8.8 2.16 12 2.16M12 0C8.74 0 8.33.01 7.05.07 5.78.13 4.9.33 4.14.63c-.79.31-1.46.72-2.13 1.38C1.35 2.68.94 3.35.63 4.14.33 4.9.13 5.78.07 7.05.01 8.33 0 8.74 0 12s.01 3.67.07 4.95c.06 1.27.26 2.15.56 2.91.31.79.72 1.46 1.38 2.13.67.66 1.34 1.07 2.13 1.38.76.3 1.64.5 2.91.56C8.33 23.99 8.74 24 12 24s3.67-.01 4.95-.07c1.27-.06 2.15-.26 2.91-.56.79-.31 1.46-.72 2.13-1.38.66-.67 1.07-1.34 1.38-2.13.3-.76.5-1.64.56-2.91.06-1.28.07-1.69.07-4.95s-.01-3.67-.07-4.95c-.06-1.27-.26-2.15-.56-2.91a5.88 5.88 0 0 0-1.38-2.13A5.88 5.88 0 0 0 19.86.63c-.76-.3-1.64-.5-2.91-.56C15.67.01 15.26 0 12 0Zm0 5.84a6.16 6.16 0 1 0 0 12.32 6.16 6.16 0 0 0 0-12.32ZM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8Zm6.41-10.85a1.44 1.44 0 1 0 0 2.88 1.44 1.44 0 0 0 0-2.88Z"/></svg></a>
+        <a class="social-icon facebook" href="https://www.facebook.com/profile.php?id=61575426762100" target="_blank" rel="noopener" aria-label="Follow us on Facebook"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M24 12.07C24 5.4 18.63 0 12 0S0 5.4 0 12.07C0 18.1 4.39 23.1 10.13 24v-8.44H7.08v-3.49h3.05V9.41c0-3.02 1.79-4.69 4.53-4.69 1.31 0 2.68.24 2.68.24v2.97h-1.51c-1.49 0-1.96.93-1.96 1.89v2.25h3.33l-.53 3.49h-2.8V24C19.61 23.1 24 18.1 24 12.07Z"/></svg></a>
+      </div>
+      <div class="footer-bottom" style="border-top:none;padding-top:0">
+        <div class="footer-copy">© 2026 XLane Rentals · Proudly serving New Jersey</div>
+        <div class="footer-legal">
+          <a href="privacy.html" style="color:var(--steel)">Privacy</a>
+          <a href="terms.html" style="color:var(--steel)">Terms</a>
+          <a href="insurance-disclosure.html" style="color:var(--steel)">Insurance Disclosure</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+</div>
+
+<script src="js/script.js"></script>
+<script>
+  function handleFile(input, boxId) {
+    const box = document.getElementById(boxId);
+    const file = input.files && input.files[0];
+    if (!file) return;
+    box.classList.add('has-file');
+    box.querySelector('.ci-upload-filename').textContent = file.name;
+    box.querySelector('.ci-upload-label').textContent = 'Photo Selected ✓';
+    const reader = new FileReader();
+    reader.onload = function(e) {
+      const thumb = box.querySelector('.ci-upload-thumb');
+      thumb.src = e.target.result;
+      thumb.style.display = 'inline-block';
+    };
+    reader.readAsDataURL(file);
+  }
+
+  // Paste the URL you get after deploying check-in-backend-apps-script.gs
+  // as a Web App (Deploy > New deployment > Web app) here:
+  var SUBMIT_URL = 'https://script.google.com/macros/s/AKfycby2RFzCYRt9yh5nO04PoR-2SUIfsz-1QD_FQHQr5v4foA0YjcKKFPpXOyoYEc-rAYD1/exec';
+
+  function fileToBase64(file) {
+    return new Promise(function(resolve, reject) {
+      if (!file) { resolve(''); return; }
+      var reader = new FileReader();
+      reader.onload = function(e) { resolve(e.target.result); };
+      reader.onerror = reject;
+      reader.readAsDataURL(file);
+    });
+  }
+
+  document.getElementById('checkinForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+
+    if (!SUBMIT_URL || SUBMIT_URL.indexOf('PASTE_YOUR') === 0) {
+      alert('Check-in submission is not connected yet. Please contact XLane Rentals directly to complete your check-in.');
+      return;
+    }
+
+    var submitBtn = document.querySelector('#checkinForm button[type="submit"]');
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Submitting…';
+
+    var fullName = document.getElementById('fullName').value;
+    var selfieFile = document.getElementById('selfiePhoto').files[0];
+    var cardFrontFile = document.getElementById('cardFront').files[0];
+    var cardBackFile = document.getElementById('cardBack').files[0];
+
+    Promise.all([
+      fileToBase64(selfieFile),
+      fileToBase64(cardFrontFile),
+      fileToBase64(cardBackFile)
+    ]).then(function(results) {
+      var payload = {
+        fullName: fullName,
+        selfiePhoto: results[0],
+        cardFront: results[1],
+        cardBack: results[2]
+      };
+
+      return fetch(SUBMIT_URL, {
+        method: 'POST',
+        headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+        body: JSON.stringify(payload)
+      }).then(function(response) {
+        return response.text().then(function(text) {
+          var result;
+          try { result = JSON.parse(text); } catch (parseErr) {
+            throw new Error('Unexpected response from server: ' + text.slice(0, 200));
+          }
+          if (result.status !== 'ok') {
+            throw new Error(result.message || 'Server reported an error.');
+          }
+          return result;
+        });
+      });
+    }).then(function() {
+      document.getElementById('checkinForm').style.display = 'none';
+      document.getElementById('checkinSuccess').style.display = 'block';
+      if (typeof fbq !== 'undefined') { fbq('track', 'CompleteRegistration'); }
+    }).catch(function(err) {
+      submitBtn.disabled = false;
+      submitBtn.textContent = 'Submit Check-In →';
+      alert('Something went wrong submitting your check-in: ' + err.message + '\n\nPlease try again or contact XLane Rentals directly.');
+      console.error(err);
+    });
+  });
+</script>
+</body>
+</html>
