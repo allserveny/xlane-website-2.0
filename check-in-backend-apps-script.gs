@@ -26,7 +26,7 @@ function doPost(e) {
       data.fullName + ' — ' + timestamp.toISOString()
     );
 
-    var selfieUrl = saveFile(submissionFolder, data.selfiePhoto, 'selfie-with-license-and-car');
+    var selfieUrl = saveFile(submissionFolder, data.selfiePhoto, 'selfie-with-license');
     var cardFrontUrl = saveFile(submissionFolder, data.cardFront, 'card-front');
     var cardBackUrl = saveFile(submissionFolder, data.cardBack, 'card-back');
 
@@ -71,7 +71,7 @@ function getOrCreateSheet(name) {
   if (!sheet) {
     sheet = ss.insertSheet(name);
     sheet.appendRow([
-      'Timestamp', 'Full Name', 'Selfie (License + Car)', 'Card Front', 'Card Back', 'Folder Link'
+      'Timestamp', 'Full Name', 'Selfie (License)', 'Card Front', 'Card Back', 'Folder Link'
     ]);
     sheet.setFrozenRows(1);
   }
