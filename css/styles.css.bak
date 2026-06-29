@@ -657,18 +657,3 @@
   .footer-social .social-icon { width: 40px; height: 40px; border-radius: 10px; }
   /* Footer social row (simple footers) */
   .footer-social-row { display: flex; justify-content: center; gap: 12px; margin-bottom: 22px; }
-
-  /* ── WHATSAPP FLOATING BUTTON ── */
-  .whatsapp-float {
-    position: fixed; bottom: 22px; right: 22px; z-index: 999;
-    width: 58px; height: 58px; border-radius: 50%;
-    background: #25D366; display: flex; align-items: center; justify-content: center;
-    box-shadow: 0 4px 14px rgba(0,0,0,0.25);
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
-  }
-  .whatsapp-float svg { width: 30px; height: 30px; fill: #fff; display: block; }
-  .whatsapp-float:hover { transform: scale(1.08); box-shadow: 0 6px 18px rgba(0,0,0,0.3); }
-  @media (max-width: 480px) {
-    .whatsapp-float { width: 52px; height: 52px; bottom: 16px; right: 16px; }
-    .whatsapp-float svg { width: 27px; height: 27px; }
-  }
