@@ -34,6 +34,6 @@
   document.addEventListener('click', function(e) {
     var link = e.target.closest('a[href="book.html"]');
     if (link && typeof fbq !== 'undefined') {
-      fbq('track', 'Lead');
+      fbq('track', 'Lead', { value: 0, currency: 'USD' });
     }
   });
