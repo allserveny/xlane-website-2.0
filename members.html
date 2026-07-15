@@ -48,6 +48,14 @@ src="https://www.facebook.com/tr?id=1013097894449447&ev=PageView&noscript=1"
   .mem-stat { background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.12); border-radius: var(--radius); padding: 16px 26px; min-width: 150px; }
   .mem-stat strong { display: block; font-family:'Sora',sans-serif; font-size: 1.5rem; font-weight: 800; color: var(--amber-light); }
   .mem-stat span { font-size: 0.76rem; color: rgba(255,255,255,0.6); }
+  @media (max-width: 600px) {
+    .mem-hero-stats {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 10px;
+      max-width: 320px; margin-left: auto; margin-right: auto; margin-bottom: 30px;
+    }
+    .mem-stat { min-width: 0; padding: 14px 10px; }
+    .mem-stat:nth-child(3) { grid-column: 1 / span 2; max-width: 155px; margin: 0 auto; }
+  }
 
   .mem-table-wrap { overflow-x: auto; margin-top: 40px; border: 1px solid var(--border); border-radius: var(--radius-lg); }
   table.mem-table { width: 100%; border-collapse: collapse; min-width: 560px; }
@@ -113,7 +121,7 @@ src="https://www.facebook.com/tr?id=1013097894449447&ev=PageView&noscript=1"
     <div class="mem-hero-stats">
       <div class="mem-stat"><strong>$200<span style="font-size:0.9rem">/mo</span></strong><span>Flat membership fee</span></div>
       <div class="mem-stat"><strong>25%</strong><span>Off every rental, every time</span></div>
-      <div class="mem-stat"><strong>0</strong><span>Codes to remember</span></div>
+      <div class="mem-stat"><strong>0</strong><span>Promo codes to remember</span></div>
     </div>
     <a class="nav-cta-gold" style="padding:14px 28px !important; font-size:0.98rem; border-radius:10px !important; font-family:'Sora',sans-serif;" href="#apply">Apply for Membership →</a>
   </div>
