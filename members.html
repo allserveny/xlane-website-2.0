@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=AW-18299717105"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'AW-18299717105');
+</script>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Membership — XLane Rentals</title>
+<meta name="description" content="XLane Rentals Membership: $200/month for 25% off every rental. Built for renters who need a car regularly. Apply in under 2 minutes."/>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<link href="css/styles.css" rel="stylesheet"/>
+<!-- Meta Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '1013097894449447');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=1013097894449447&ev=PageView&noscript=1"
+/></noscript>
+<!-- End Meta Pixel Code -->
+<style>
+  /* Members page specific styles (kept local to this page for now) */
+  .mem-hero { padding: 96px 5% 56px; text-align: center; background: linear-gradient(180deg, var(--navy) 0%, var(--navy-mid) 100%); }
+  .mem-badge {
+    display: inline-flex; align-items: center; gap: 8px; background: rgba(61,191,191,0.14);
+    border: 1px solid rgba(61,191,191,0.35); color: var(--amber-light); font-size: 0.78rem;
+    font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase; padding: 7px 16px;
+    border-radius: 999px; margin-bottom: 20px;
+  }
+  .mem-hero h1 { font-family:'Sora',sans-serif; font-size: clamp(2rem, 4vw, 2.9rem); font-weight: 800; color: var(--white); max-width: 780px; margin: 0 auto 16px; line-height: 1.2; }
+  .mem-hero p { color: rgba(255,255,255,0.72); max-width: 620px; margin: 0 auto 32px; line-height: 1.7; font-size: 1.02rem; }
+  .mem-hero-stats { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; margin-bottom: 34px; }
+  .mem-stat { background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.12); border-radius: var(--radius); padding: 16px 26px; min-width: 150px; }
+  .mem-stat strong { display: block; font-family:'Sora',sans-serif; font-size: 1.5rem; font-weight: 800; color: var(--amber-light); }
+  .mem-stat span { font-size: 0.76rem; color: rgba(255,255,255,0.6); }
+
+  .mem-table-wrap { overflow-x: auto; margin-top: 40px; border: 1px solid var(--border); border-radius: var(--radius-lg); }
+  table.mem-table { width: 100%; border-collapse: collapse; min-width: 560px; }
+  table.mem-table th, table.mem-table td { padding: 14px 18px; text-align: center; font-size: 0.9rem; }
+  table.mem-table th:first-child, table.mem-table td:first-child { text-align: left; }
+  table.mem-table thead th { background: var(--navy); color: var(--white); font-weight: 700; font-family:'Sora',sans-serif; font-size: 0.82rem; }
+  table.mem-table tbody tr:nth-child(odd) { background: var(--slate-bg); }
+  table.mem-table td.mem-save { color: var(--success); font-weight: 700; }
+  .mem-note { font-size: 0.82rem; color: var(--text-muted); margin-top: 14px; line-height: 1.6; }
+
+  .mem-steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; margin-top: 40px; }
+  .mem-step { background: var(--white); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 28px; position: relative; }
+  .mem-step-num {
+    width: 36px; height: 36px; border-radius: 50%; background: var(--navy); color: var(--white);
+    display: flex; align-items: center; justify-content: center; font-family:'Sora',sans-serif;
+    font-weight: 800; margin-bottom: 16px; font-size: 0.95rem;
+  }
+  .mem-step h3 { font-size: 1.02rem; font-weight: 700; color: var(--navy); margin-bottom: 8px; }
+  .mem-step p { font-size: 0.87rem; color: var(--text-muted); line-height: 1.65; }
+  @media (max-width: 760px) { .mem-steps { grid-template-columns: 1fr; } }
+
+  .mem-app-wrap { max-width: 720px; margin: 0 auto; }
+  .mem-app-card { background: var(--white); border-radius: var(--radius-lg); box-shadow: var(--shadow-lg); padding: 40px; border: 1px solid var(--border); }
+  .mem-app-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+  @media (max-width: 600px) { .mem-app-grid { grid-template-columns: 1fr; } }
+  .mem-app-notice {
+    background: rgba(61,191,191,0.08); border: 1px solid rgba(61,191,191,0.25);
+    border-radius: 10px; padding: 16px 18px; margin-bottom: 28px; font-size: 0.85rem;
+    color: var(--text-body); line-height: 1.6;
+  }
+</style>
+</head>
+<body>
+<nav>
+  <a class="nav-logo" href="index.html">
+    <img src="assets/images/logo.png" alt="XLane Rentals" class="nav-logo-img">
+  </a>
+  <div class="nav-links" id="navLinks">
+    <a href="index.html">Home</a>
+    <a href="book.html">Book Now</a>
+    <a href="check-in.html">Check-In</a>
+    <a href="about.html">About Us</a>
+    <a href="contact.html">Contact</a>
+    <div class="nav-social">
+      <a class="social-icon instagram" href="https://www.instagram.com/xlanerentals/" target="_blank" rel="noopener" aria-label="Follow us on Instagram"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.16c3.2 0 3.58.01 4.85.07 1.17.05 1.8.25 2.23.41.56.22.96.48 1.38.9.42.42.68.82.9 1.38.16.42.36 1.06.41 2.23.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.05 1.17-.25 1.8-.41 2.23-.22.56-.48.96-.9 1.38-.42.42-.82.68-1.38.9-.42.16-1.06.36-2.23.41-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-1.17-.05-1.8-.25-2.23-.41a3.72 3.72 0 0 1-1.38-.9 3.72 3.72 0 0 1-.9-1.38c-.16-.42-.36-1.06-.41-2.23-.06-1.27-.07-1.65-.07-4.85s.01-3.58.07-4.85c.05-1.17.25-1.8.41-2.23.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.42-.16 1.06-.36 2.23-.41C8.42 2.17 8.8 2.16 12 2.16M12 0C8.74 0 8.33.01 7.05.07 5.78.13 4.9.33 4.14.63c-.79.31-1.46.72-2.13 1.38C1.35 2.68.94 3.35.63 4.14.33 4.9.13 5.78.07 7.05.01 8.33 0 8.74 0 12s.01 3.67.07 4.95c.06 1.27.26 2.15.56 2.91.31.79.72 1.46 1.38 2.13.67.66 1.34 1.07 2.13 1.38.76.3 1.64.5 2.91.56C8.33 23.99 8.74 24 12 24s3.67-.01 4.95-.07c1.27-.06 2.15-.26 2.91-.56.79-.31 1.46-.72 2.13-1.38.66-.67 1.07-1.34 1.38-2.13.3-.76.5-1.64.56-2.91.06-1.28.07-1.69.07-4.95s-.01-3.67-.07-4.95c-.06-1.27-.26-2.15-.56-2.91a5.88 5.88 0 0 0-1.38-2.13A5.88 5.88 0 0 0 19.86.63c-.76-.3-1.64-.5-2.91-.56C15.67.01 15.26 0 12 0Zm0 5.84a6.16 6.16 0 1 0 0 12.32 6.16 6.16 0 0 0 0-12.32ZM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8Zm6.41-10.85a1.44 1.44 0 1 0 0 2.88 1.44 1.44 0 0 0 0-2.88Z"/></svg></a>
+      <a class="social-icon facebook" href="https://www.facebook.com/profile.php?id=61575426762100" target="_blank" rel="noopener" aria-label="Follow us on Facebook"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M24 12.07C24 5.4 18.63 0 12 0S0 5.4 0 12.07C0 18.1 4.39 23.1 10.13 24v-8.44H7.08v-3.49h3.05V9.41c0-3.02 1.79-4.69 4.53-4.69 1.31 0 2.68.24 2.68.24v2.97h-1.51c-1.49 0-1.96.93-1.96 1.89v2.25h3.33l-.53 3.49h-2.8V24C19.61 23.1 24 18.1 24 12.07Z"/></svg></a>
+    </div>
+    <a href="book.html" class="nav-cta">Reserve a Car →</a>
+  </div>
+  <div class="hamburger" id="hamburger" onclick="toggleMenu()">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+
+<div class="page">
+
+  <!-- Hero -->
+  <div class="mem-hero">
+    <div class="mem-badge">✦ XLane Membership</div>
+    <h1>Drive Every Week? Stop Paying Full Price.</h1>
+    <p>Built for renters who need a car regularly — rideshare and delivery drivers, small businesses, and anyone renting more than a couple times a month. $200/month gets you 25% off every rental, automatically, on every vehicle in our fleet.</p>
+    <div class="mem-hero-stats">
+      <div class="mem-stat"><strong>$200<span style="font-size:0.9rem">/mo</span></strong><span>Flat membership fee</span></div>
+      <div class="mem-stat"><strong>25%</strong><span>Off every rental, every time</span></div>
+      <div class="mem-stat"><strong>0</strong><span>Codes to remember</span></div>
+    </div>
+    <a class="btn-primary" href="#apply">Apply for Membership →</a>
+  </div>
+
+  <!-- The Math -->
+  <section class="section">
+    <div class="section-inner">
+      <div class="section-eyebrow">The Math</div>
+      <h2 class="section-title">See what membership actually saves you</h2>
+      <p class="section-sub">Rent about 8 or more days a month and your membership pays for itself — every day after that is straight savings.</p>
+
+      <div class="mem-table-wrap">
+        <table class="mem-table">
+          <thead>
+            <tr><th>Vehicle Class</th><th>Full Rate / Day</th><th>Member Rate / Day</th><th>You Save / Day</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>SUV Premium XL</td><td>$120.00</td><td>$90.00</td><td class="mem-save">$30.00</td></tr>
+            <tr><td>SUV Standard</td><td>$115.00</td><td>$86.25</td><td class="mem-save">$28.75</td></tr>
+            <tr><td>Sedan Platinum</td><td>$95.00</td><td>$71.25</td><td class="mem-save">$23.75</td></tr>
+            <tr><td>Sedan Standard</td><td>$90.00</td><td>$67.50</td><td class="mem-save">$22.50</td></tr>
+            <tr><td>Sedan Essential</td><td>$85.00</td><td>$63.75</td><td class="mem-save">$21.25</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="mem-note">Member pricing applies automatically to your account — no coupon codes, and it's not combinable with other promo offers.</p>
+    </div>
+  </section>
+
+  <!-- What's Included -->
+  <section class="section" style="background:var(--slate-bg)">
+    <div class="section-inner">
+      <div class="section-eyebrow">What's Included</div>
+      <h2 class="section-title">More than just a discount</h2>
+      <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap:20px; margin-top:40px;">
+        <div class="value-card">
+          <div class="value-icon">🏷️</div>
+          <h3>25% off, automatically</h3>
+          <p>Your member rate applies the moment you're approved — every class, every booking, no codes to enter.</p>
+        </div>
+        <div class="value-card">
+          <div class="value-icon">🛡️</div>
+          <h3>Lower security deposit</h3>
+          <p>Members hold just a $200 refundable deposit instead of our standard $300. Terms apply — a higher deposit may be required for rentals traveling far from our Long Island City pickup location.</p>
+        </div>
+        <div class="value-card">
+          <div class="value-icon">⚡</div>
+          <h3>Priority vehicle selection</h3>
+          <p>First pick from available inventory at our Long Island City office when you book.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Who It's For -->
+  <section class="section">
+    <div class="section-inner">
+      <div class="section-eyebrow">Who It's For</div>
+      <h2 class="section-title">Built for renters who drive constantly</h2>
+      <p class="section-sub">Membership pays for itself at roughly 8+ rental days a month. If that's you, it's an easy call.</p>
+      <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap:20px; margin-top:40px;">
+        <div class="value-card">
+          <div class="value-icon">🚕</div>
+          <h3>Rideshare & delivery drivers</h3>
+          <p>Renting nearly every day makes the member rate add up fast — often paying for itself within the first week.</p>
+        </div>
+        <div class="value-card">
+          <div class="value-icon">🏢</div>
+          <h3>Small businesses</h3>
+          <p>Rotating a vehicle for staff, deliveries, or job sites? One membership covers every booking your business makes.</p>
+        </div>
+        <div class="value-card">
+          <div class="value-icon">🔁</div>
+          <h3>Frequent renters</h3>
+          <p>If you're already renting from us multiple times a month, membership is almost always the cheaper way to keep doing it.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- How It Works -->
+  <section class="section" style="background:var(--slate-bg)">
+    <div class="section-inner">
+      <div class="section-eyebrow">How It Works</div>
+      <h2 class="section-title">Three steps to your member rate</h2>
+      <div class="mem-steps">
+        <div class="mem-step">
+          <div class="mem-step-num">1</div>
+          <h3>Apply below</h3>
+          <p>Takes about 2 minutes. Tell us a bit about how you rent and how to reach you.</p>
+        </div>
+        <div class="mem-step">
+          <div class="mem-step-num">2</div>
+          <h3>We review & call you</h3>
+          <p>Our team confirms a few details and sets up secure monthly billing for your $200 fee.</p>
+        </div>
+        <div class="mem-step">
+          <div class="mem-step-num">3</div>
+          <h3>You're approved</h3>
+          <p>Your 25% member rate is active immediately — book like normal and the discount is already applied.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Application Form -->
+  <section class="section" id="apply">
+    <div class="section-inner mem-app-wrap">
+      <div style="text-align:center; margin-bottom:12px;">
+        <div class="section-eyebrow">Apply Now</div>
+        <h2 class="section-title" style="margin:0 auto 14px;">Apply for Membership</h2>
+        <p class="section-sub" style="margin:0 auto 0;">No payment required to apply. Our team will follow up to confirm details and get you set up.</p>
+      </div>
+
+      <div class="mem-app-card" style="margin-top:32px;">
+        <div class="mem-app-notice">
+          📍 Membership is fulfilled through our Long Island City office (30-10 41st Ave, Long Island City, NY 11101). After you apply, a team member will call or text you to confirm details and set up billing — nothing is charged automatically.
+        </div>
+
+        <form id="memberForm">
+          <div class="mem-app-grid">
+            <div class="form-group">
+              <label for="fullName">Full Name <span class="ci-required" style="color:#c7442a">*</span></label>
+              <input type="text" id="fullName" name="fullName" placeholder="Your full name" required>
+            </div>
+            <div class="form-group">
+              <label for="phone">Phone Number <span class="ci-required" style="color:#c7442a">*</span></label>
+              <input type="tel" id="phone" name="phone" placeholder="(929) 000-0000" required>
+            </div>
+          </div>
+          <div class="form-group" style="margin-top:18px;">
+            <label for="email">Email Address <span class="ci-required" style="color:#c7442a">*</span></label>
+            <input type="email" id="email" name="email" placeholder="you@example.com" required>
+          </div>
+          <div class="mem-app-grid" style="margin-top:18px;">
+            <div class="form-group">
+              <label for="frequency">How Often Do You Expect to Rent? <span class="ci-required" style="color:#c7442a">*</span></label>
+              <select id="frequency" name="frequency" required>
+                <option value="" disabled selected>Select one</option>
+                <option value="Rideshare/delivery — nearly daily">Rideshare/delivery — nearly daily</option>
+                <option value="Weekly">Weekly</option>
+                <option value="A few times a month">A few times a month</option>
+                <option value="Business/fleet use">Business/fleet use</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="vehicle">Preferred Vehicle Class</label>
+              <select id="vehicle" name="vehicle">
+                <option value="" disabled selected>Select one</option>
+                <option value="Sedan Essential">Sedan Essential</option>
+                <option value="Sedan Standard">Sedan Standard</option>
+                <option value="Sedan Platinum">Sedan Platinum</option>
+                <option value="SUV Standard">SUV Standard</option>
+                <option value="SUV Premium XL">SUV Premium XL</option>
+                <option value="Not sure yet">Not sure yet</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-group" style="margin-top:18px;">
+            <label for="notes">Anything Else We Should Know?</label>
+            <textarea id="notes" name="notes" placeholder="Optional — tell us about your rental needs"></textarea>
+          </div>
+
+          <div class="ci-submit-row" style="margin-top:32px; padding-top:24px; border-top:1px solid var(--border); text-align:center;">
+            <button type="submit" class="btn-primary" style="width:100%; justify-content:center; cursor:pointer; border:none; font-family:inherit;">Submit Application →</button>
+            <div class="form-nav-left" style="margin-top:14px;">By applying, you agree to be contacted by XLane Rentals about your membership.</div>
+          </div>
+        </form>
+
+        <div class="success-screen" id="memberSuccess">
+          <div class="success-icon">✅</div>
+          <h2>Application Received!</h2>
+          <p>Thanks for applying to XLane Membership. Our team will review your application and reach out within one business day to confirm details and get your 25% member rate active.</p>
+          <a class="btn-primary" href="index.html">Back to Home</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="section" style="background:var(--slate-bg)">
+    <div class="section-inner" style="text-align:center">
+      <div class="section-eyebrow">Questions Answered</div>
+      <h2 class="section-title">Membership FAQ</h2>
+      <p class="section-sub" style="margin:0 auto 0">Here's what most applicants ask before signing up.</p>
+      <div class="faq-list" style="text-align:left">
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggleFAQ(this)">Can I stack membership with promo codes or other discounts?</button>
+          <div class="faq-a"><div class="faq-a-inner">No — membership pricing replaces promo codes rather than stacking with them. Since your 25% member rate is already better than any current promotion, there's nothing extra to apply.</div></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggleFAQ(this)">How does the $200 monthly fee get charged?</button>
+          <div class="faq-a"><div class="faq-a-inner">There's no charge when you apply. Once approved, our team sets up secure recurring billing with you directly so the $200/month fee is handled automatically going forward.</div></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggleFAQ(this)">Can I cancel anytime?</button>
+          <div class="faq-a"><div class="faq-a-inner">Yes. Contact our team to cancel and your member rate stays active through the end of your current billing period.</div></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggleFAQ(this)">Which vehicles does membership cover?</button>
+          <div class="faq-a"><div class="faq-a-inner">All five classes in our fleet — Sedan Essential, Sedan Standard, Sedan Platinum, SUV Standard, and SUV Premium XL — all at 25% off the published daily rate.</div></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggleFAQ(this)">What if I don't rent at all in a given month?</button>
+          <div class="faq-a"><div class="faq-a-inner">The $200 fee covers your member rate for that month whether you use it once, many times, or not at all — there's no separate usage minimum. Membership is designed for renters who use a vehicle regularly, so it's worth confirming that fits your needs before applying.</div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-social-row">
+        <a class="social-icon instagram" href="https://www.instagram.com/xlanerentals/" target="_blank" rel="noopener" aria-label="Follow us on Instagram"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.16c3.2 0 3.58.01 4.85.07 1.17.05 1.8.25 2.23.41.56.22.96.48 1.38.9.42.42.68.82.9 1.38.16.42.36 1.06.41 2.23.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.05 1.17-.25 1.8-.41 2.23-.22.56-.48.96-.9 1.38-.42.42-.82.68-1.38.9-.42.16-1.06.36-2.23.41-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-1.17-.05-1.8-.25-2.23-.41a3.72 3.72 0 0 1-1.38-.9 3.72 3.72 0 0 1-.9-1.38c-.16-.42-.36-1.06-.41-2.23-.06-1.27-.07-1.65-.07-4.85s.01-3.58.07-4.85c.05-1.17.25-1.8.41-2.23.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.42-.16 1.06-.36 2.23-.41C8.42 2.17 8.8 2.16 12 2.16M12 0C8.74 0 8.33.01 7.05.07 5.78.13 4.9.33 4.14.63c-.79.31-1.46.72-2.13 1.38C1.35 2.68.94 3.35.63 4.14.33 4.9.13 5.78.07 7.05.01 8.33 0 8.74 0 12s.01 3.67.07 4.95c.06 1.27.26 2.15.56 2.91.31.79.72 1.46 1.38 2.13.67.66 1.34 1.07 2.13 1.38.76.3 1.64.5 2.91.56C8.33 23.99 8.74 24 12 24s3.67-.01 4.95-.07c1.27-.06 2.15-.26 2.91-.56.79-.31 1.46-.72 2.13-1.38.66-.67 1.07-1.34 1.38-2.13.3-.76.5-1.64.56-2.91.06-1.28.07-1.69.07-4.95s-.01-3.67-.07-4.95c-.06-1.27-.26-2.15-.56-2.91a5.88 5.88 0 0 0-1.38-2.13A5.88 5.88 0 0 0 19.86.63c-.76-.3-1.64-.5-2.91-.56C15.67.01 15.26 0 12 0Zm0 5.84a6.16 6.16 0 1 0 0 12.32 6.16 6.16 0 0 0 0-12.32ZM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8Zm6.41-10.85a1.44 1.44 0 1 0 0 2.88 1.44 1.44 0 0 0 0-2.88Z"/></svg></a>
+        <a class="social-icon facebook" href="https://www.facebook.com/profile.php?id=61575426762100" target="_blank" rel="noopener" aria-label="Follow us on Facebook"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M24 12.07C24 5.4 18.63 0 12 0S0 5.4 0 12.07C0 18.1 4.39 23.1 10.13 24v-8.44H7.08v-3.49h3.05V9.41c0-3.02 1.79-4.69 4.53-4.69 1.31 0 2.68.24 2.68.24v2.97h-1.51c-1.49 0-1.96.93-1.96 1.89v2.25h3.33l-.53 3.49h-2.8V24C19.61 23.1 24 18.1 24 12.07Z"/></svg></a>
+      </div>
+      <div class="footer-bottom" style="border-top:none;padding-top:0">
+        <div class="footer-copy">© 2026 XLane Rentals · Proudly serving Long Island City, NYC</div>
+        <div class="footer-legal">
+          <a href="privacy.html" style="color:var(--steel)">Privacy</a>
+          <a href="terms.html" style="color:var(--steel)">Terms</a>
+          <a href="insurance-disclosure.html" style="color:var(--steel)">Insurance Disclosure</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+</div>
+
+<script src="js/script.js"></script>
+<script>
+  // Paste the URL you get after deploying members-backend-apps-script.gs
+  // as a Web App (Deploy > New deployment > Web app) here:
+  var MEMBER_SUBMIT_URL = 'https://script.google.com/macros/s/AKfycbwQcXi3U-LSpiGTSg1ZfKUotlqDc34BAI7kjLPR46iik0H0AfEuojAB_gUZLCAY17_J/exec';
+
+  document.getElementById('memberForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+
+    var submitBtn = document.querySelector('#memberForm button[type="submit"]');
+
+    var payload = {
+      fullName: document.getElementById('fullName').value,
+      phone: document.getElementById('phone').value,
+      email: document.getElementById('email').value,
+      frequency: document.getElementById('frequency').value,
+      vehicle: document.getElementById('vehicle').value,
+      notes: document.getElementById('notes').value
+    };
+
+    function showSuccess() {
+      document.getElementById('memberForm').style.display = 'none';
+      document.getElementById('memberSuccess').style.display = 'block';
+      if (typeof fbq !== 'undefined') { fbq('track', 'Lead', { value: 0, currency: 'USD' }); }
+    }
+
+    if (!MEMBER_SUBMIT_URL || MEMBER_SUBMIT_URL.indexOf('PASTE_YOUR') === 0) {
+      // Backend not connected yet — still confirm receipt to the applicant,
+      // but flag clearly in the console so this isn't missed during setup.
+      console.warn('MEMBER_SUBMIT_URL is not configured — application was not saved anywhere. Deploy members-backend-apps-script.gs and paste the URL in members.html.');
+      showSuccess();
+      return;
+    }
+
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Submitting…';
+
+    fetch(MEMBER_SUBMIT_URL, {
+      method: 'POST',
+      headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+      body: JSON.stringify(payload)
+    }).then(function(response) {
+      return response.text().then(function(text) {
+        var result;
+        try { result = JSON.parse(text); } catch (parseErr) {
+          throw new Error('Unexpected response from server: ' + text.slice(0, 200));
+        }
+        if (result.status !== 'ok') {
+          throw new Error(result.message || 'Server reported an error.');
+        }
+        return result;
+      });
+    }).then(function() {
+      showSuccess();
+    }).catch(function(err) {
+      submitBtn.disabled = false;
+      submitBtn.textContent = 'Submit Application →';
+      alert('Something went wrong submitting your application: ' + err.message + '\n\nPlease try again or contact XLane Rentals directly.');
+      console.error(err);
+    });
+  });
+</script>
+</body>
+</html>
