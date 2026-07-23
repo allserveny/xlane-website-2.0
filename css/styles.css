@@ -689,13 +689,17 @@
   .mta-bullet.line-e { background: #0039A6; color: #fff; }
   .mta-bullet.line-f { background: #FF6319; color: #fff; }
   .mta-bullet.line-r { background: #FCCC0A; color: #000; }
+  .mta-bullet.line-7 { background: #B933AD; color: #fff; }
+  .mta-bullet.line-n { background: #FCCC0A; color: #000; }
+  .mta-bullet.line-w { background: #FCCC0A; color: #000; }
+  .mta-bullet.line-m { background: #FF6319; color: #fff; }
   .footer-transit-label { font-size: 0.78rem; color: var(--steel); }
   @media (max-width: 640px) {
     .footer-transit-label { font-size: 0.72rem; }
   }
 
   /* MTA bullet size variants */
-  .mta-bullet-sm { width: 20px; height: 20px; font-size: 11px; }
+  .mta-bullet-sm { width: 18px; height: 18px; font-size: 10px; }
   .mta-bullet-inline {
     width: 19px; height: 19px; line-height: 19px;
     font-size: 10.5px; text-align: center;
@@ -703,7 +707,7 @@
   }
 
   /* Map stat card — transit variant (replaces a numeric stat) */
-  .map-stat-transit-row { display: flex; gap: 4px; margin-bottom: 6px; }
+  .map-stat-transit-row { display: flex; flex-wrap: wrap; gap: 3px; margin-bottom: 6px; }
 
   /* Hero subheading transit line */
   .hero-transit {
