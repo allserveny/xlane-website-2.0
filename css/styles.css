@@ -672,6 +672,44 @@
   /* Footer social row (simple footers) */
   .footer-social-row { display: flex; justify-content: center; gap: 12px; margin-bottom: 22px; }
 
+  /* Footer transit badges (MTA subway lines near Queens Plaza) */
+  .footer-transit {
+    display: flex; align-items: center; justify-content: center;
+    gap: 10px; margin: 0 0 22px;
+  }
+  .footer-transit-badges { display: flex; gap: 5px; }
+  .mta-bullet {
+    width: 24px; height: 24px; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-weight: 700; font-size: 14px; line-height: 1; flex-shrink: 0;
+  }
+  .mta-bullet.line-e { background: #0039A6; color: #fff; }
+  .mta-bullet.line-f { background: #FF6319; color: #fff; }
+  .mta-bullet.line-r { background: #FCCC0A; color: #000; }
+  .footer-transit-label { font-size: 0.78rem; color: var(--steel); }
+  @media (max-width: 640px) {
+    .footer-transit-label { font-size: 0.72rem; }
+  }
+
+  /* MTA bullet size variants */
+  .mta-bullet-sm { width: 20px; height: 20px; font-size: 11px; }
+  .mta-bullet-inline {
+    width: 19px; height: 19px; line-height: 19px;
+    font-size: 10.5px; text-align: center;
+    display: inline-block; vertical-align: middle; margin: 0 1px 3px;
+  }
+
+  /* Map stat card — transit variant (replaces a numeric stat) */
+  .map-stat-transit-row { display: flex; gap: 4px; margin-bottom: 6px; }
+
+  /* Hero subheading transit line */
+  .hero-transit {
+    display: flex; align-items: center; gap: 9px;
+    margin: -22px 0 28px;
+  }
+  .hero-transit-label { font-size: 0.85rem; color: rgba(255,255,255,0.65); }
+
   /* ── WHATSAPP FLOATING BUTTON ── */
   .whatsapp-float {
     position: fixed; bottom: 22px; right: 22px; z-index: 999;
