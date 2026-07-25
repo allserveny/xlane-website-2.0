@@ -298,7 +298,14 @@ src="https://www.facebook.com/tr?id=1013097894449447&ev=PageView&noscript=1"
             <textarea id="notes" name="notes" placeholder="Optional — tell us about your rental needs"></textarea>
           </div>
 
-          <div class="ci-submit-row" style="margin-top:32px; padding-top:24px; border-top:1px solid var(--border); text-align:center;">
+          <div class="form-group" style="margin-top:22px; flex-direction:row; align-items:flex-start; gap:10px;">
+            <input type="checkbox" id="agreeTerms" name="agreeTerms" required style="width:18px; height:18px; margin-top:2px; flex-shrink:0;">
+            <label for="agreeTerms" style="text-transform:none; font-weight:400; font-size:0.83rem; color:var(--text-body); letter-spacing:normal;">
+              I have read and agree to the <a href="terms.html#membership" target="_blank" style="color:var(--amber-light, var(--amber)); font-weight:600;">Membership Terms</a>, including recurring $200/month billing until I cancel. <span style="color:#c7442a">*</span>
+            </label>
+          </div>
+
+          <div class="ci-submit-row" style="margin-top:24px; padding-top:24px; border-top:1px solid var(--border); text-align:center;">
             <button type="submit" class="btn-primary" style="width:100%; justify-content:center; cursor:pointer; border:none; font-family:inherit;">Submit Application →</button>
             <div class="form-nav-left" style="margin-top:14px;">By applying, you agree to be contacted by XLane Rentals about your membership.</div>
           </div>
@@ -388,12 +395,15 @@ src="https://www.facebook.com/tr?id=1013097894449447&ev=PageView&noscript=1"
     var submitBtn = document.querySelector('#memberForm button[type="submit"]');
 
     var payload = {
+      formType: 'application',
       fullName: document.getElementById('fullName').value,
       phone: document.getElementById('phone').value,
       email: document.getElementById('email').value,
       frequency: document.getElementById('frequency').value,
       vehicle: document.getElementById('vehicle').value,
-      notes: document.getElementById('notes').value
+      notes: document.getElementById('notes').value,
+      agreedToTerms: document.getElementById('agreeTerms').checked,
+      agreedAt: new Date().toISOString()
     };
 
     function showSuccess() {
