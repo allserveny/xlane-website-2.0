@@ -21,6 +21,11 @@
  *    - Who has access: Anyone
  * 4. Copy the deployed Web App URL and paste it into members.html AND
  *    membership-agreement.html as the value of MEMBER_SUBMIT_URL.
+ *
+ * If you get a "You do not have permission to call DriveApp..." error after
+ * updating this script: select "authorize" in the function dropdown above
+ * the toolbar, click Run, and approve the Drive permission prompt. You only
+ * need to do this once — after that, the existing deployment will work.
  */
 
 var APPLICATIONS_SHEET = 'Membership Applications';
@@ -100,6 +105,15 @@ function handleSignature(data) {
   ]);
 
   return jsonResponse({ status: 'ok' });
+}
+
+function authorize() {
+  // Run this function once manually (select it above, then click Run) any
+  // time you add a new Google service to this script. Apps Script only
+  // prompts for new permissions when a function is run directly in the
+  // editor — a web app deployment alone will not trigger the prompt.
+  DriveApp.getRootFolder();
+  SpreadsheetApp.getActiveSpreadsheet();
 }
 
 function saveFile(folder, base64Data, label) {
