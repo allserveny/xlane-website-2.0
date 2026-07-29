@@ -3,9 +3,30 @@
 
   <url>
     <loc>https://www.xlanerentals.com/</loc>
-    <lastmod>2026-07-22</lastmod>
+    <lastmod>2026-07-28</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
+  </url>
+
+  <url>
+    <loc>https://www.xlanerentals.com/car-rental-near-lga.html</loc>
+    <lastmod>2026-07-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://www.xlanerentals.com/weekly-car-rental-long-island-city.html</loc>
+    <lastmod>2026-07-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://www.xlanerentals.com/car-rental-astoria-sunnyside-queens.html</loc>
+    <lastmod>2026-07-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
   </url>
 
   <url>
@@ -24,7 +45,7 @@
 
   <url>
     <loc>https://www.xlanerentals.com/about.html</loc>
-    <lastmod>2026-07-22</lastmod>
+    <lastmod>2026-07-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>

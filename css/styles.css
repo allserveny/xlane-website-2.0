@@ -299,7 +299,9 @@
     max-width: 1100px; width: 100%;
     display: grid; grid-template-columns: repeat(4, 1fr); gap: 40px;
   }
-  .trust-item { text-align: center; }
+  .trust-item { text-align: center; text-decoration: none; color: inherit; }
+  .trust-item:hover .trust-label { text-decoration: underline; }
+  .about-visual-link { display: block; text-decoration: none; color: inherit; }
   .trust-icon {
     width: 56px; height: 56px; background: rgba(61,191,191,0.12);
     border-radius: 14px; display: flex; align-items: center; justify-content: center;
@@ -530,7 +532,7 @@
     border-top: 1px solid rgba(140,157,181,0.1);
   }
   .footer-inner { max-width: 1200px; margin: 0 auto; }
-  .footer-top { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 48px; margin-bottom: 48px; }
+  .footer-top { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr 1fr; gap: 48px; margin-bottom: 48px; }
   .footer-brand p { color: var(--steel); font-size: 0.85rem; line-height: 1.7; margin-top: 14px; max-width: 260px; }
   .footer-col h4 { font-family: 'Sora', sans-serif; font-weight: 700; font-size: 0.82rem; color: var(--white); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 16px; }
   .footer-col a { display: block; color: var(--steel); text-decoration: none; font-size: 0.85rem; margin-bottom: 10px; transition: color 0.2s; }
