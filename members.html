@@ -99,6 +99,23 @@ src="https://www.facebook.com/tr?id=1013097894449447&ev=PageView&noscript=1"
     border-radius: 10px; padding: 16px 18px; margin-bottom: 28px; font-size: 0.85rem;
     color: var(--text-body); line-height: 1.6;
   }
+
+  .ci-hint { font-size: 0.8rem; color: var(--text-muted); margin: -4px 0 12px; line-height: 1.6; }
+  .ci-card-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  @media (max-width: 600px) { .ci-card-grid { grid-template-columns: 1fr; } }
+  .ci-upload {
+    display: block; border: 2px dashed var(--border); border-radius: 10px; padding: 22px;
+    text-align: center; cursor: pointer; transition: all 0.2s; position: relative;
+    overflow: hidden; background: var(--slate-bg);
+  }
+  .ci-upload:hover { border-color: var(--amber); background: rgba(232,160,32,0.05); }
+  .ci-upload.has-file { border-color: var(--success, #1e8a5e); background: rgba(30,138,94,0.05); }
+  .ci-upload input[type="file"] { position: absolute; inset: 0; opacity: 0; cursor: pointer; }
+  .ci-upload-icon { font-size: 1.6rem; margin-bottom: 6px; }
+  .ci-upload-label { font-weight: 600; font-size: 0.85rem; color: var(--navy); }
+  .ci-upload-sub { font-size: 0.76rem; color: var(--text-muted); margin-top: 4px; }
+  .ci-upload-filename { font-size: 0.78rem; color: #1a6644; font-weight: 600; margin-top: 6px; word-break: break-all; }
+  .ci-upload-thumb { max-height: 90px; border-radius: 6px; margin-top: 10px; display: none; }
 </style>
 </head>
 <body>
@@ -298,6 +315,29 @@ src="https://www.facebook.com/tr?id=1013097894449447&ev=PageView&noscript=1"
             <textarea id="notes" name="notes" placeholder="Optional — tell us about your rental needs"></textarea>
           </div>
 
+          <div class="form-group" style="margin-top:22px;">
+            <label>Driver's License Photos <span style="color:#c7442a">*</span></label>
+          </div>
+          <p class="ci-hint">Upload clear photos of the front and back of your driver's license so we can verify your identity.</p>
+          <div class="ci-card-grid">
+            <label class="ci-upload" id="licenseFrontUpload">
+              <input type="file" id="licenseFront" name="licenseFront" accept="image/*" capture="environment" required onchange="handleMemberFile(this,'licenseFrontUpload')">
+              <div class="ci-upload-icon">🪪</div>
+              <div class="ci-upload-label">License — Front</div>
+              <div class="ci-upload-sub">Tap to take or choose a photo</div>
+              <div class="ci-upload-filename"></div>
+              <img class="ci-upload-thumb">
+            </label>
+            <label class="ci-upload" id="licenseBackUpload">
+              <input type="file" id="licenseBack" name="licenseBack" accept="image/*" capture="environment" required onchange="handleMemberFile(this,'licenseBackUpload')">
+              <div class="ci-upload-icon">🪪</div>
+              <div class="ci-upload-label">License — Back</div>
+              <div class="ci-upload-sub">Tap to take or choose a photo</div>
+              <div class="ci-upload-filename"></div>
+              <img class="ci-upload-thumb">
+            </label>
+          </div>
+
           <div class="form-group" style="margin-top:22px; flex-direction:row; align-items:flex-start; gap:10px;">
             <input type="checkbox" id="agreeTerms" name="agreeTerms" required style="width:18px; height:18px; margin-top:2px; flex-shrink:0;">
             <label for="agreeTerms" style="text-transform:none; font-weight:400; font-size:0.83rem; color:var(--text-body); letter-spacing:normal;">
@@ -389,28 +429,45 @@ src="https://www.facebook.com/tr?id=1013097894449447&ev=PageView&noscript=1"
   // as a Web App (Deploy > New deployment > Web app) here:
   var MEMBER_SUBMIT_URL = 'https://script.google.com/macros/s/AKfycbwQcXi3U-LSpiGTSg1ZfKUotlqDc34BAI7kjLPR46iik0H0AfEuojAB_gUZLCAY17_J/exec';
 
+  function handleMemberFile(input, boxId) {
+    var box = document.getElementById(boxId);
+    var file = input.files && input.files[0];
+    if (!file) return;
+    box.classList.add('has-file');
+    box.querySelector('.ci-upload-filename').textContent = file.name;
+    box.querySelector('.ci-upload-label').textContent = 'Photo Selected ✓';
+    var reader = new FileReader();
+    reader.onload = function(e) {
+      var thumb = box.querySelector('.ci-upload-thumb');
+      thumb.src = e.target.result;
+      thumb.style.display = 'inline-block';
+    };
+    reader.readAsDataURL(file);
+  }
+
+  function memberFileToBase64(file) {
+    return new Promise(function(resolve, reject) {
+      if (!file) { resolve(''); return; }
+      var reader = new FileReader();
+      reader.onload = function(e) { resolve(e.target.result); };
+      reader.onerror = reject;
+      reader.readAsDataURL(file);
+    });
+  }
+
   document.getElementById('memberForm').addEventListener('submit', function(e) {
     e.preventDefault();
 
     var submitBtn = document.querySelector('#memberForm button[type="submit"]');
-
-    var payload = {
-      formType: 'application',
-      fullName: document.getElementById('fullName').value,
-      phone: document.getElementById('phone').value,
-      email: document.getElementById('email').value,
-      frequency: document.getElementById('frequency').value,
-      vehicle: document.getElementById('vehicle').value,
-      notes: document.getElementById('notes').value,
-      agreedToTerms: document.getElementById('agreeTerms').checked,
-      agreedAt: new Date().toISOString()
-    };
 
     function showSuccess() {
       document.getElementById('memberForm').style.display = 'none';
       document.getElementById('memberSuccess').style.display = 'block';
       if (typeof fbq !== 'undefined') { fbq('track', 'Lead', { value: 0, currency: 'USD' }); }
     }
+
+    var licenseFrontFile = document.getElementById('licenseFront').files[0];
+    var licenseBackFile = document.getElementById('licenseBack').files[0];
 
     if (!MEMBER_SUBMIT_URL || MEMBER_SUBMIT_URL.indexOf('PASTE_YOUR') === 0) {
       // Backend not connected yet — still confirm receipt to the applicant,
@@ -423,10 +480,29 @@ src="https://www.facebook.com/tr?id=1013097894449447&ev=PageView&noscript=1"
     submitBtn.disabled = true;
     submitBtn.textContent = 'Submitting…';
 
-    fetch(MEMBER_SUBMIT_URL, {
-      method: 'POST',
-      headers: { 'Content-Type': 'text/plain;charset=utf-8' },
-      body: JSON.stringify(payload)
+    Promise.all([
+      memberFileToBase64(licenseFrontFile),
+      memberFileToBase64(licenseBackFile)
+    ]).then(function(results) {
+      var payload = {
+        formType: 'application',
+        fullName: document.getElementById('fullName').value,
+        phone: document.getElementById('phone').value,
+        email: document.getElementById('email').value,
+        frequency: document.getElementById('frequency').value,
+        vehicle: document.getElementById('vehicle').value,
+        notes: document.getElementById('notes').value,
+        licenseFront: results[0],
+        licenseBack: results[1],
+        agreedToTerms: document.getElementById('agreeTerms').checked,
+        agreedAt: new Date().toISOString()
+      };
+
+      return fetch(MEMBER_SUBMIT_URL, {
+        method: 'POST',
+        headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+        body: JSON.stringify(payload)
+      });
     }).then(function(response) {
       return response.text().then(function(text) {
         var result;

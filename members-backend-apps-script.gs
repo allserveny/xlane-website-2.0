@@ -3,6 +3,7 @@
  * ------------------------------------------------------------
  * Handles two form types from the same deployed Web App URL:
  *   - "application" (members.html)          -> "Membership Applications" tab
+ *                                                + driver's license photos saved to Drive
  *   - "signature"   (membership-agreement.html) -> "Membership Signatures" tab
  *
  * If you already deployed an earlier version of this script, you do NOT
@@ -24,6 +25,7 @@
 
 var APPLICATIONS_SHEET = 'Membership Applications';
 var SIGNATURES_SHEET = 'Membership Signatures';
+var LICENSE_FOLDER_NAME = 'XLane Membership — Driver License Photos';
 
 function doPost(e) {
   try {
@@ -43,9 +45,21 @@ function handleApplication(data) {
     return jsonResponse({ status: 'error', message: 'Missing required field.' });
   }
 
+  var licenseFrontUrl = '';
+  var licenseBackUrl = '';
+
+  if (data.licenseFront || data.licenseBack) {
+    var rootFolder = getOrCreateFolder(LICENSE_FOLDER_NAME);
+    var submissionFolder = rootFolder.createFolder(
+      data.fullName + ' — ' + new Date().toISOString()
+    );
+    licenseFrontUrl = saveFile(submissionFolder, data.licenseFront, 'license-front');
+    licenseBackUrl = saveFile(submissionFolder, data.licenseBack, 'license-back');
+  }
+
   var sheet = getOrCreateSheet(APPLICATIONS_SHEET, [
     'Timestamp', 'Full Name', 'Phone', 'Email', 'Rental Frequency', 'Preferred Vehicle',
-    'Notes', 'Agreed to Terms', 'Agreed At (client)', 'Status'
+    'Notes', 'License Front', 'License Back', 'Agreed to Terms', 'Agreed At (client)', 'Status'
   ]);
   sheet.appendRow([
     new Date(),
@@ -55,6 +69,8 @@ function handleApplication(data) {
     data.frequency || '',
     data.vehicle || '',
     data.notes || '',
+    licenseFrontUrl,
+    licenseBackUrl,
     data.agreedToTerms ? 'Yes' : 'No',
     data.agreedAt || '',
     'New'   // Status column — update manually as applications are reviewed
@@ -84,6 +100,25 @@ function handleSignature(data) {
   ]);
 
   return jsonResponse({ status: 'ok' });
+}
+
+function saveFile(folder, base64Data, label) {
+  if (!base64Data) return '';
+  var matches = base64Data.match(/^data:(.+);base64,(.*)$/);
+  if (!matches) return '';
+  var contentType = matches[1];
+  var bytes = Utilities.base64Decode(matches[2]);
+  var extension = contentType.indexOf('png') > -1 ? '.png' : '.jpg';
+  var blob = Utilities.newBlob(bytes, contentType, label + extension);
+  var file = folder.createFile(blob);
+  // Files are private by default — viewable only by people with access to
+  // this Drive (you / your team). No public sharing link is created.
+  return file.getUrl();
+}
+
+function getOrCreateFolder(name) {
+  var folders = DriveApp.getFoldersByName(name);
+  return folders.hasNext() ? folders.next() : DriveApp.createFolder(name);
 }
 
 function getOrCreateSheet(name, headerRow) {
