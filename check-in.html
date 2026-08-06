@@ -232,11 +232,55 @@ src="https://www.facebook.com/tr?id=1013097894449447&ev=PageView&noscript=1"
   // as a Web App (Deploy > New deployment > Web app) here:
   var SUBMIT_URL = 'https://script.google.com/macros/s/AKfycby2RFzCYRt9yh5nO04PoR-2SUIfsz-1QD_FQHQr5v4foA0YjcKKFPpXOyoYEc-rAYD1/exec';
 
+  // Resizes/compresses a photo before it's base64-encoded and uploaded.
+  // Raw iPhone camera photos can be 3-8MB each; three of those as base64
+  // in one request is what was causing "Load failed" on cellular. Capping
+  // the longest side at 1600px and re-encoding as JPEG at 0.72 quality
+  // brings each photo down to a few hundred KB while staying easily
+  // legible for manual verification.
+  var MAX_DIMENSION = 1600;
+  var JPEG_QUALITY = 0.72;
+
   function fileToBase64(file) {
     return new Promise(function(resolve, reject) {
       if (!file) { resolve(''); return; }
+
       var reader = new FileReader();
-      reader.onload = function(e) { resolve(e.target.result); };
+      reader.onload = function(e) {
+        var img = new Image();
+        img.onload = function() {
+          var width = img.naturalWidth;
+          var height = img.naturalHeight;
+
+          if (width > height && width > MAX_DIMENSION) {
+            height = Math.round(height * (MAX_DIMENSION / width));
+            width = MAX_DIMENSION;
+          } else if (height >= width && height > MAX_DIMENSION) {
+            width = Math.round(width * (MAX_DIMENSION / height));
+            height = MAX_DIMENSION;
+          }
+
+          var canvas = document.createElement('canvas');
+          canvas.width = width;
+          canvas.height = height;
+          var ctx = canvas.getContext('2d');
+          ctx.drawImage(img, 0, 0, width, height);
+
+          try {
+            resolve(canvas.toDataURL('image/jpeg', JPEG_QUALITY));
+          } catch (drawErr) {
+            // Canvas export failed (e.g. tainted canvas) — fall back to
+            // the original file rather than blocking submission entirely.
+            resolve(e.target.result);
+          }
+        };
+        img.onerror = function() {
+          // Couldn't decode as an image (unsupported format) — fall back
+          // to the original, uncompressed file.
+          resolve(e.target.result);
+        };
+        img.src = e.target.result;
+      };
       reader.onerror = reject;
       reader.readAsDataURL(file);
     });
