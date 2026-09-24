@@ -37,3 +37,12 @@
       fbq('track', 'Lead', { value: 0, currency: 'USD' });
     }
   });
+
+  // Home page reviews carousel arrows
+  function scrollReviews(dir) {
+    var t = document.getElementById('reviewsTrack');
+    if (!t) return;
+    var card = t.querySelector('.review-card');
+    var step = card ? card.getBoundingClientRect().width + 20 : t.clientWidth;
+    t.scrollBy({ left: dir * step, behavior: 'smooth' });
+  }

@@ -737,3 +737,133 @@
     .whatsapp-float { width: 52px; height: 52px; bottom: 16px; right: 16px; }
     .whatsapp-float svg { width: 27px; height: 27px; }
   }
+
+  /* ══════════════════════════════
+     2026-09 UPDATES
+  ══════════════════════════════ */
+  /* Fleet feature pills with icons */
+  .fleet-features { gap: 8px; }
+  .fleet-tag { display: inline-flex; align-items: center; gap: 6px; color: var(--navy); font-weight: 500; padding: 5px 10px; }
+  .fleet-tag .ft-ic {
+    width: 14px; height: 14px; flex-shrink: 0; fill: none; stroke: var(--amber);
+    stroke-width: 2; stroke-linecap: round; stroke-linejoin: round;
+  }
+
+  /* Home hero booking widget (replaces office map card) */
+  .hero-booking {
+    background: var(--white); border-radius: var(--radius-lg); padding: 24px;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.35); border: 1px solid rgba(140,157,181,0.2);
+    min-width: 0; scroll-margin-top: 80px;
+  }
+  .hero-booking-head { margin-bottom: 14px; }
+  .hero-booking-title { font-family: 'Sora', sans-serif; font-weight: 800; font-size: 1.25rem; color: var(--navy); }
+  .hero-booking-sub { font-size: 0.85rem; color: var(--text-muted); margin-top: 2px; }
+  .hero-booking .hq-rental-software-integration { min-height: 260px; }
+  .hero-booking-foot {
+    display: block; margin-top: 14px; padding-top: 12px; border-top: 1px solid var(--border);
+    font-size: 0.78rem; color: var(--text-muted); text-decoration: none; line-height: 1.5;
+  }
+  .hero-booking-foot span { color: var(--navy); font-weight: 600; text-decoration: underline; }
+  @media (max-width: 600px) {
+    .hero-inner { padding: 48px 12px 40px; gap: 32px; }
+    .hero-inner > div:first-child { padding: 0 3%; }
+    .hero-booking { padding: 16px 10px; border-radius: 14px; }
+    .hero-booking-head { padding: 0 6px; }
+    .hero-booking-foot { padding-left: 6px; padding-right: 6px; }
+  }
+
+  /* Google reviews header + carousel */
+  .google-rating {
+    display: inline-flex; align-items: center; gap: 10px; margin-top: 18px;
+    background: var(--white); border: 1px solid var(--border); border-radius: 999px;
+    padding: 8px 18px; text-decoration: none; transition: box-shadow 0.2s;
+  }
+  .google-rating:hover { box-shadow: 0 4px 16px rgba(10,22,40,0.08); }
+  .google-rating-num { font-family: 'Sora', sans-serif; font-weight: 800; font-size: 1.15rem; color: var(--navy); }
+  .google-rating-stars { color: #FBBC04; letter-spacing: 1px; font-size: 1rem; }
+  .google-rating-label { font-size: 0.82rem; color: var(--text-muted); font-weight: 500; }
+  .reviews-carousel { position: relative; margin-top: 32px; }
+  .reviews-track {
+    display: flex; gap: 20px; overflow-x: auto; scroll-snap-type: x mandatory;
+    scroll-behavior: smooth; padding: 4px 2px 16px; scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+  }
+  .reviews-track::-webkit-scrollbar { display: none; }
+  .reviews-track .review-card {
+    flex: 0 0 calc((100% - 40px) / 3); scroll-snap-align: start;
+    display: flex; flex-direction: column;
+  }
+  .reviews-track .review-text { flex: 1; }
+  .reviews-track .review-stars { color: #FBBC04; }
+  .review-note { font-size: 0.72rem; color: var(--text-muted); font-style: italic; margin: -10px 0 16px; }
+  .reviews-arrow {
+    position: absolute; top: 45%; transform: translateY(-50%); z-index: 2;
+    width: 42px; height: 42px; border-radius: 50%; border: 1px solid var(--border);
+    background: var(--white); color: var(--navy); font-size: 1.6rem; line-height: 1;
+    cursor: pointer; box-shadow: 0 4px 14px rgba(10,22,40,0.12);
+    display: flex; align-items: center; justify-content: center; padding-bottom: 3px;
+  }
+  .reviews-arrow:hover { background: var(--slate-bg); }
+  .reviews-arrow.prev { left: -20px; }
+  .reviews-arrow.next { right: -20px; }
+  .reviews-actions { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; margin-top: 20px; }
+  .btn-outline-navy {
+    display: inline-flex; align-items: center; gap: 8px; background: transparent; color: var(--navy);
+    font-family: 'Sora', sans-serif; font-weight: 600; font-size: 0.95rem; padding: 12px 26px;
+    border-radius: 10px; text-decoration: none; border: 2px solid var(--navy); transition: all 0.2s;
+  }
+  .btn-outline-navy:hover { background: var(--navy); color: var(--white); }
+  @media (max-width: 900px) {
+    .reviews-track .review-card { flex-basis: calc((100% - 20px) / 2); }
+  }
+  @media (max-width: 600px) {
+    .reviews-track .review-card { flex-basis: 86%; padding: 22px; }
+    .reviews-arrow { display: none; }
+    .reviews-actions a { width: 100%; justify-content: center; }
+  }
+
+  /* Book page: give the HQ widget full width on phones */
+  @media (max-width: 640px) {
+    .book-hero { padding-left: 16px !important; padding-right: 16px !important; }
+    .book-promo-wrap { padding: 0 10px !important; }
+    .book-promo { padding: 14px 16px !important; gap: 10px !important; }
+    .book-promo .nav-cta-gold { width: 100%; text-align: center; padding: 11px 16px !important; }
+    .book-widget-wrap { padding: 0 6px 60px !important; margin-top: 12px !important; }
+    .book-widget-card { padding: 14px 6px !important; border-radius: 14px !important; box-shadow: 0 2px 10px rgba(10,22,40,0.06) !important; min-height: 0 !important; }
+    .book-widget-card .info-box { margin: 0 6px 16px !important; padding: 12px 14px; font-size: 0.82rem; }
+  }
+
+  /* Hero v2: copy + side actions on top, full-width booking widget below */
+  .hero-inner.hero-v2 {
+    grid-template-columns: 1.15fr 0.85fr; gap: 28px 60px; align-items: end;
+    padding-top: 64px; padding-bottom: 64px;
+  }
+  .hero-v2 .hero-sub { margin-bottom: 0; }
+  .hero-v2 .hero-side .hero-actions { margin-bottom: 14px; }
+  .hero-v2 .hero-side > div[style*="margin-bottom:34px"] { margin-bottom: 26px !important; }
+  .hero-v2 .hero-booking {
+    grid-column: 1 / -1; width: 100%; max-width: 1100px; justify-self: center;
+    padding: 28px 32px;
+  }
+  .hero-v2 .hero-booking .hq-rental-software-integration { min-height: 0; }
+  .hero-v2 .hero-booking-head { display: flex; align-items: baseline; gap: 14px; flex-wrap: wrap; }
+  @media (max-width: 900px) {
+    .hero-inner.hero-v2 { grid-template-columns: 1fr; gap: 28px; }
+  }
+  @media (max-width: 600px) {
+    .hero-inner.hero-v2 { padding: 44px 12px 36px; }
+    .hero-v2 .hero-copy, .hero-v2 .hero-side { padding: 0 3%; }
+    .hero-v2 .hero-booking { padding: 16px 10px; }
+    .hero-v2 .hero-booking-head { display: block; }
+  }
+
+  /* Google reviews badge: optional official Google "G" (place file at assets/images/google-g.svg) */
+  .google-g { width: 22px; height: 22px; display: block; }
+  .google-rating-brand { color: var(--navy); font-weight: 600; font-size: 0.85rem; padding-right: 10px; border-right: 1px solid var(--border); }
+  /* Google Reviews logo badge */
+  .google-rating { padding: 10px 22px 10px 18px; gap: 16px; border-radius: 14px; }
+  .google-reviews-logo { height: 60px; width: auto; display: block; }
+  .google-rating-score { display: flex; flex-direction: column; align-items: flex-start; line-height: 1.1; padding-left: 16px; border-left: 1px solid var(--border); }
+  .google-rating-score .google-rating-num { font-size: 1.6rem; }
+  .google-rating-score .google-rating-label { font-size: 0.72rem; }
+  @media (max-width: 600px) { .google-reviews-logo { height: 50px; } .google-rating-score .google-rating-num { font-size: 1.35rem; } }
