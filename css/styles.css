@@ -341,7 +341,7 @@
   .faq-q::after { content: '+'; font-size: 1.3rem; color: var(--amber); font-weight: 300; transition: transform 0.3s; }
   .faq-item.open .faq-q::after { transform: rotate(45deg); }
   .faq-a { max-height: 0; overflow: hidden; transition: max-height 0.35s ease; }
-  .faq-item.open .faq-a { max-height: 300px; }
+  .faq-item.open .faq-a { max-height: 1200px; }
   .faq-a-inner { padding: 0 24px 20px; font-size: 0.88rem; color: var(--text-muted); line-height: 1.7; }
 
   /* CTA Banner */
