@@ -867,3 +867,57 @@
   .google-rating-score .google-rating-num { font-size: 1.6rem; }
   .google-rating-score .google-rating-label { font-size: 0.72rem; }
   @media (max-width: 600px) { .google-reviews-logo { height: 50px; } .google-rating-score .google-rating-num { font-size: 1.35rem; } }
+
+
+  /* ══════════════════════════════
+     2026-09-26 — Desktop hero: single column over LIC night photo
+     (desktop only; mobile/tablet layout unchanged)
+  ══════════════════════════════ */
+  .hero-top { display: contents; }
+  .hero-photo { display: none; }
+  @media (min-width: 901px) {
+    .hero { background: #07111F; align-items: flex-start; }
+    .hero .hero-glow { display: none; }
+    .hero-inner.hero-v2 { display: block; padding-top: 0; padding-bottom: 64px; }
+    .hero-top { display: block; position: relative; padding: 72px 0 96px; }
+    /* photo spans the full window width behind the copy and fades out above the booking box */
+    .hero-photo {
+      display: block; position: absolute; z-index: -1; pointer-events: none;
+      top: 0; bottom: 0; left: 50%; width: 100vw; margin-left: -50vw;
+      background:
+        linear-gradient(90deg, rgba(7,17,31,.95) 0%, rgba(7,17,31,.85) calc(50% - 120px), rgba(7,17,31,.35) calc(50% + 100px), rgba(7,17,31,0) calc(50% + 240px)),
+        url(../assets/images/hero-night-lic.jpg) right 72% / cover no-repeat;
+      -webkit-mask-image: linear-gradient(180deg, #000 72%, transparent 100%);
+              mask-image: linear-gradient(180deg, #000 72%, transparent 100%);
+    }
+    .hero-top > .hero-copy, .hero-top > .hero-side { position: relative; z-index: 1; }
+    .hero-v2 .hero-copy { max-width: 1000px; }
+    .hero-v2 h1 {
+      font-size: clamp(2.4rem, 4.4vw, 4rem); line-height: 1.04; margin-bottom: 22px;
+      text-shadow: 0 2px 18px rgba(0,0,0,.45);
+    }
+    .hero-v2 .hero-sub {
+      font-size: 1.15rem; max-width: 560px; color: rgba(255,255,255,0.78);
+      margin-bottom: 30px; text-shadow: 0 2px 18px rgba(0,0,0,.45);
+    }
+    .hero-v2 .hero-side {
+      display: flex; flex-wrap: wrap; align-items: center; gap: 14px; max-width: 1000px;
+    }
+    .hero-v2 .hero-transit { flex-basis: 100%; margin: 0 0 16px; gap: 10px; }
+    .hero-v2 .hero-transit .mta-bullet { width: 34px; height: 34px; font-size: 0.95rem; }
+    .hero-v2 .hero-transit-label {
+      font-size: 1rem; color: rgba(255,255,255,0.85);
+      display: inline-flex; align-items: center;
+    }
+    .hero-v2 .hero-transit-label::before {
+      content: ''; width: 1px; height: 28px; background: rgba(255,255,255,0.25); margin: 0 18px 0 8px;
+    }
+    .hero-v2 .hero-side .hero-actions { margin: 0 !important; }
+    .hero-v2 .hero-side > div[style*="margin-bottom:34px"] { margin: 0 !important; }
+    .hero-v2 .hero-trust { flex-basis: 100%; margin-top: 16px; gap: 36px; }
+    .hero-v2 .hero-trust-item { font-size: 0.95rem; color: rgba(255,255,255,0.8); gap: 10px; }
+    .hero-v2 .hero-trust-item svg {
+      width: 26px; height: 26px; padding: 4px; border: 2px solid var(--amber); border-radius: 50%;
+    }
+    .hero-v2 .hero-booking { position: relative; z-index: 1; margin-top: 12px; max-width: 1100px; }
+  }
