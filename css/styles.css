@@ -921,3 +921,53 @@
     }
     .hero-v2 .hero-booking { position: relative; z-index: 1; margin-top: 12px; max-width: 1100px; }
   }
+
+  /* ── HELP LINE: accident guide (2026-09-26) ── */
+  .acc-section { background: var(--white); padding-top: 64px; padding-bottom: 64px; scroll-margin-top: 68px; }
+  .acc-card {
+    max-width: 880px; margin: 0 auto; background: var(--white);
+    border: 1px solid var(--border); border-top: 5px solid #D93025;
+    border-radius: var(--radius-lg); box-shadow: var(--shadow); padding: 36px 40px;
+  }
+  .acc-badge {
+    display: inline-block; background: rgba(217,48,37,0.08); color: #B3261E;
+    font-size: 0.75rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase;
+    padding: 5px 12px; border-radius: 999px; margin-bottom: 12px;
+  }
+  .acc-head h2 { font-family: 'Sora', sans-serif; font-weight: 800; font-size: clamp(1.4rem, 3vw, 1.9rem); color: var(--navy); letter-spacing: -0.02em; margin-bottom: 6px; }
+  .acc-head p { color: var(--text-muted); font-size: 0.95rem; margin-bottom: 26px; }
+  .acc-steps { list-style: none; counter-reset: acc; padding: 0; margin: 0; }
+  .acc-steps > li { counter-increment: acc; position: relative; padding: 0 0 22px 56px; margin: 0; }
+  .acc-steps > li::before {
+    content: counter(acc); position: absolute; left: 0; top: -2px;
+    width: 36px; height: 36px; border-radius: 50%; background: var(--navy); color: var(--white);
+    font-family: 'Sora', sans-serif; font-weight: 800; font-size: 1rem;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .acc-steps > li.acc-step-key::before { background: #D93025; }
+  .acc-steps h3 { font-family: 'Sora', sans-serif; font-weight: 700; font-size: 1.02rem; color: var(--navy); margin-bottom: 4px; line-height: 1.4; }
+  .acc-steps p { font-size: 0.92rem; color: var(--text-body); line-height: 1.65; }
+  .acc-steps a { color: var(--navy); }
+  .acc-verify {
+    margin-top: 10px; background: rgba(217,48,37,0.05); border: 1px solid rgba(217,48,37,0.25);
+    border-left: 4px solid #D93025; border-radius: 10px; padding: 16px 18px;
+  }
+  .acc-verify ul { padding-left: 18px; margin: 0; }
+  .acc-verify li { font-size: 0.9rem; color: var(--text-body); line-height: 1.6; margin-bottom: 6px; }
+  .acc-why { margin-top: 12px; padding-top: 12px; border-top: 1px dashed rgba(217,48,37,0.3); font-size: 0.86rem !important; }
+  .acc-actions { display: flex; gap: 14px; flex-wrap: wrap; margin-top: 8px; padding-left: 56px; }
+  .acc-btn-outline {
+    display: inline-flex; align-items: center; gap: 8px; background: transparent; color: var(--navy);
+    font-family: 'Sora', sans-serif; font-weight: 600; font-size: 0.95rem; padding: 12px 26px;
+    border-radius: 10px; text-decoration: none; border: 2px solid var(--navy); transition: all 0.2s;
+  }
+  .acc-btn-outline:hover { background: var(--navy); color: var(--white); }
+  @media (max-width: 600px) {
+    .acc-section { padding: 40px 12px; }
+    .acc-card { padding: 24px 18px; }
+    .acc-steps > li { padding-left: 46px; }
+    .acc-steps > li::before { width: 32px; height: 32px; font-size: 0.9rem; }
+    .acc-verify { margin-left: -46px; padding: 14px 14px 14px 12px; }
+    .acc-actions { padding-left: 0; flex-direction: column; }
+    .acc-actions a { width: 100%; justify-content: center; }
+  }
