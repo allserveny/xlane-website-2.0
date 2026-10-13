@@ -971,3 +971,18 @@
     .acc-actions { padding-left: 0; flex-direction: column; }
     .acc-actions a { width: 100%; justify-content: center; }
   }
+
+
+  /* ── Landing pages: booking widget under the top banner (2026-10-13) ── */
+  .lp-booking-wrap { position: relative; z-index: 2; padding: 0 5%; margin-top: -48px;
+    background: linear-gradient(180deg, transparent 0, transparent 48px, var(--slate-bg) 48px); }
+  .lp-booking { max-width: 1100px; margin: 0 auto; padding: 28px 32px; }
+  .lp-booking .hq-rental-software-integration { min-height: 0; }
+  .lp-booking .hero-booking-head { display: flex; align-items: baseline; gap: 14px; flex-wrap: wrap; }
+  @media (max-width: 600px) {
+    .lp-booking-wrap { padding: 0 10px; margin-top: -36px;
+      background: linear-gradient(180deg, transparent 0, transparent 36px, var(--slate-bg) 36px); }
+    .lp-booking { padding: 16px 10px; }
+    .lp-booking .hero-booking-head { display: block; padding: 0 6px; }
+    .lp-booking .hero-booking-foot { padding-left: 6px; padding-right: 6px; }
+  }
