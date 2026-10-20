@@ -105,29 +105,40 @@ src="https://www.facebook.com/tr?id=1013097894449447&ev=PageView&noscript=1"
 <div class="page">
   <div class="book-hero">
     <h1>Reserve Your Vehicle</h1>
-    <p>Confirmed in minutes. Takes under 5 to book. Pick up in person at our LIC office.</p>
-  </div>
-  <!-- Membership Promo -->
-  <div class="book-promo-wrap" style="max-width:1100px; margin:-20px auto 0; padding:0 5%; position:relative; z-index:2;">
-    <a class="book-promo" href="members.html" style="text-decoration:none; display:flex; align-items:center; justify-content:space-between; gap:18px; flex-wrap:wrap; background:var(--navy); border-radius:var(--radius-lg); padding:22px 28px; box-shadow:var(--shadow-lg);">
-      <div style="display:flex; align-items:center; gap:14px;">
-        <span style="font-size:1.5rem; flex-shrink:0;">✦</span>
-        <div>
-          <div style="font-family:'Sora',sans-serif; font-weight:800; color:var(--white); font-size:1.02rem;">Renting often? Members save 25% on every booking.</div>
-          <div style="color:rgba(255,255,255,0.65); font-size:0.83rem; margin-top:2px;">$200/month · Applied automatically · Apply in 2 minutes</div>
-        </div>
-      </div>
-      <span class="nav-cta-gold" style="white-space:nowrap; padding:14px 28px !important; font-size:0.95rem; border-radius:10px !important; font-family:'Sora',sans-serif;">See Membership →</span>
-    </a>
+    <p>Confirmed in minutes. Takes under 5 to book. Pick up at our LIC office or choose contactless pickup nearby.</p>
   </div>
   <!-- HQ Rental Software Booking Widget -->
-  <div class="book-widget-wrap" style="max-width:1100px; margin:20px auto 0; padding:0 5% 80px; position:relative; z-index:2;">
+  <div class="book-widget-wrap" style="max-width:1100px; margin:-40px auto 0; padding:0 5% 80px; position:relative; z-index:2;">
     <div class="book-widget-card" style="background:var(--white); border-radius:var(--radius-lg); box-shadow:var(--shadow-lg); padding:40px; border:1px solid var(--border); min-height:500px;">
 
-      <div class="info-box" style="margin-bottom:28px;">
-        <div class="info-box-icon">🔒</div>
-        <p><strong>In-person pickup at our office.</strong> After booking you'll receive pickup instructions for our office at 30-10 41st Ave, Long Island City, NY 11101, open Monday through Saturday, 9am to 6pm. Our team will be ready with your keys. By subway: <span class="mta-bullet mta-bullet-inline line-e">E</span><span class="mta-bullet mta-bullet-inline line-f">F</span><span class="mta-bullet mta-bullet-inline line-m">M</span><span class="mta-bullet mta-bullet-inline line-n">N</span><span class="mta-bullet mta-bullet-inline line-r">R</span><span class="mta-bullet mta-bullet-inline line-w">W</span><span class="mta-bullet mta-bullet-inline line-7">7</span> to Queens Plaza, then a 2-minute walk.</p>
-      </div>
+        <div class="pk-card pk-card-top">
+          <div class="pk-head">
+            <span class="pk-pin" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 22s7-6.1 7-12a7 7 0 1 0-14 0c0 5.9 7 12 7 12z"/><circle cx="12" cy="10" r="2.6"/></svg></span>
+            <div>
+              <div class="pk-title">Pickup Options — Long Island City</div>
+              <p class="pk-desc">Pick up your vehicle at our LIC office or enjoy the convenience of contactless pickup at a nearby location. Contactless pickup details are provided after reservation approval and payment.</p>
+              <div class="pk-links">
+                <a class="pk-link" href="https://maps.app.goo.gl/tNubhu1n2Jjib51c6" target="_blank" rel="noopener">Get Directions</a>
+                <button type="button" class="pk-link pk-toggle" aria-expanded="false" aria-controls="pickupHow" onclick="togglePickupHow(this)">How Pickup Works <svg class="pk-chev" viewBox="0 0 12 12" aria-hidden="true"><path d="M2.5 4.5 6 8l3.5-3.5"/></svg></button>
+              </div>
+            </div>
+          </div>
+          <div class="pk-how" id="pickupHow" hidden>
+            <div class="pk-how-inner">
+              <div class="pk-opt pk-opt-main">
+                <div class="pk-opt-top"><span class="pk-opt-name">🏢 In-Person Pickup</span><span class="pk-tag pk-tag-std">Standard</span></div>
+                <p>Our standard option. Pick up your keys from our team at the office.</p>
+                <p class="pk-addr">30-10 41st Ave, Long Island City, NY 11101<br>Mon–Sat, 9am–6pm · 2 min walk to Queens Plaza</p>
+              </div>
+              <div class="pk-opt">
+                <div class="pk-opt-top"><span class="pk-opt-name">🔑 Contactless Pickup</span><span class="pk-tag pk-tag-pref">Preferred</span></div>
+                <p>Prefer self-service? Your vehicle is parked at a nearby location in Long Island City.</p>
+                <p>The exact location, license plate, and access instructions are sent after your reservation is approved, both online payments (rental and security deposit) are complete, and your online check-in is done.</p>
+              </div>
+            </div>
+            <p class="pk-note">Vehicles are reserved by category, not by specific make or model.</p>
+          </div>
+        </div>
 
       <!-- HQ Rental Software Integration -->
       <script src="https://xlane.hqrentals.app/public/car-rental/integrations/assets/integrator"></script>
@@ -174,5 +185,28 @@ src="https://www.facebook.com/tr?id=1013097894449447&ev=PageView&noscript=1"
   </footer>
 </div>
 <script src="js/script.js"></script>
+<script>
+  function togglePickupHow(btn) {
+    var panel = document.getElementById(btn.getAttribute('aria-controls'));
+    var open = btn.getAttribute('aria-expanded') === 'true';
+    if (open) {
+      panel.style.maxHeight = panel.scrollHeight + 'px';
+      requestAnimationFrame(function () { panel.style.maxHeight = '0px'; });
+      setTimeout(function () { panel.hidden = true; panel.style.maxHeight = ''; }, 350);
+    } else {
+      panel.hidden = false;
+      panel.style.maxHeight = '0px';
+      requestAnimationFrame(function () {
+        panel.style.maxHeight = panel.scrollHeight + 'px';
+        setTimeout(function () {
+          panel.style.maxHeight = 'none';
+          var r = panel.getBoundingClientRect();
+          if (r.bottom > window.innerHeight) window.scrollBy({ top: r.bottom - window.innerHeight + 16, behavior: 'smooth' });
+        }, 360);
+      });
+    }
+    btn.setAttribute('aria-expanded', open ? 'false' : 'true');
+  }
+</script>
 </body>
 </html>

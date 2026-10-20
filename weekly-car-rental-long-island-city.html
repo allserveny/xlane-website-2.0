@@ -126,7 +126,34 @@ src="https://www.facebook.com/tr?id=1013097894449447&ev=PageView&noscript=1"
              data-referral=""
              data-enable_auto_language_update="">
         </div>
-      <a class="hero-booking-foot" href="https://maps.app.goo.gl/tNubhu1n2Jjib51c6" target="_blank" rel="noopener">📍 Pickup at 30-10 41st Ave, LIC · Mon–Sat 9am–6pm · <span>Get directions</span></a>
+        <div class="pk-card">
+          <div class="pk-head">
+            <span class="pk-pin" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 22s7-6.1 7-12a7 7 0 1 0-14 0c0 5.9 7 12 7 12z"/><circle cx="12" cy="10" r="2.6"/></svg></span>
+            <div>
+              <div class="pk-title">Pickup Options — Long Island City</div>
+              <p class="pk-desc">Pick up your vehicle at our LIC office or enjoy the convenience of contactless pickup at a nearby location. Contactless pickup details are provided after reservation approval and payment.</p>
+              <div class="pk-links">
+                <a class="pk-link" href="https://maps.app.goo.gl/tNubhu1n2Jjib51c6" target="_blank" rel="noopener">Get Directions</a>
+                <button type="button" class="pk-link pk-toggle" aria-expanded="false" aria-controls="pickupHow" onclick="togglePickupHow(this)">How Pickup Works <svg class="pk-chev" viewBox="0 0 12 12" aria-hidden="true"><path d="M2.5 4.5 6 8l3.5-3.5"/></svg></button>
+              </div>
+            </div>
+          </div>
+          <div class="pk-how" id="pickupHow" hidden>
+            <div class="pk-how-inner">
+              <div class="pk-opt pk-opt-main">
+                <div class="pk-opt-top"><span class="pk-opt-name">🏢 In-Person Pickup</span><span class="pk-tag pk-tag-std">Standard</span></div>
+                <p>Our standard option. Pick up your keys from our team at the office.</p>
+                <p class="pk-addr">30-10 41st Ave, Long Island City, NY 11101<br>Mon–Sat, 9am–6pm · 2 min walk to Queens Plaza</p>
+              </div>
+              <div class="pk-opt">
+                <div class="pk-opt-top"><span class="pk-opt-name">🔑 Contactless Pickup</span><span class="pk-tag pk-tag-pref">Preferred</span></div>
+                <p>Prefer self-service? Your vehicle is parked at a nearby location in Long Island City.</p>
+                <p>The exact location, license plate, and access instructions are sent after your reservation is approved, both online payments (rental and security deposit) are complete, and your online check-in is done.</p>
+              </div>
+            </div>
+            <p class="pk-note">Vehicles are reserved by category, not by specific make or model.</p>
+          </div>
+        </div>
     </div>
   </div>
   <section class="section" style="background:var(--slate-bg)">
@@ -243,5 +270,28 @@ src="https://www.facebook.com/tr?id=1013097894449447&ev=PageView&noscript=1"
   </footer>
 </div>
 <script src="js/script.js"></script>
+<script>
+  function togglePickupHow(btn) {
+    var panel = document.getElementById(btn.getAttribute('aria-controls'));
+    var open = btn.getAttribute('aria-expanded') === 'true';
+    if (open) {
+      panel.style.maxHeight = panel.scrollHeight + 'px';
+      requestAnimationFrame(function () { panel.style.maxHeight = '0px'; });
+      setTimeout(function () { panel.hidden = true; panel.style.maxHeight = ''; }, 350);
+    } else {
+      panel.hidden = false;
+      panel.style.maxHeight = '0px';
+      requestAnimationFrame(function () {
+        panel.style.maxHeight = panel.scrollHeight + 'px';
+        setTimeout(function () {
+          panel.style.maxHeight = 'none';
+          var r = panel.getBoundingClientRect();
+          if (r.bottom > window.innerHeight) window.scrollBy({ top: r.bottom - window.innerHeight + 16, behavior: 'smooth' });
+        }, 360);
+      });
+    }
+    btn.setAttribute('aria-expanded', open ? 'false' : 'true');
+  }
+</script>
 </body>
 </html>
