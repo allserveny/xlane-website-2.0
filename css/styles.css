@@ -1030,3 +1030,11 @@
   .hiw-opt-top strong { margin-bottom: 0 !important; }
   .hiw-split-card.hiw-opt-pref { border-color: rgba(212,175,55,0.6); box-shadow: inset 3px 0 0 #D4AF37; }
   .hiw-link { color: var(--navy); font-weight: 600; text-decoration: underline; text-underline-offset: 2px; }
+
+  /* ── Booking cards: match Book Now width on desktop so the HQ widget keeps its
+        half-width fields (it switches to cramped quarter-width fields when wider
+        than ~990px). Desktop only; phones and tablets are unaffected. (2026-10-20) ── */
+  @media (min-width: 901px) {
+    .hero-v2 .hero-booking { max-width: 960px; }
+    .lp-booking { max-width: 960px; }
+  }
