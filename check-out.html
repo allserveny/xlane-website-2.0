@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=AW-18299717105"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'AW-18299717105');
+  gtag('config', 'G-E6QMQE9C86');
+</script>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Return Check-Out — XLane Rentals</title>
+<meta name="robots" content="noindex, nofollow"/>
+<meta name="description" content="Return check-out for XLane Rentals: upload four photos of your vehicle at drop-off to record its condition."/>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<link href="css/styles.css" rel="stylesheet"/>
+<link rel="canonical" href="https://www.xlanerentals.com/check-out.html"/>
+<meta property="og:type" content="website"/>
+<meta property="og:site_name" content="XLane Rentals"/>
+<meta property="og:title" content="Return Check-Out — XLane Rentals"/>
+<meta property="og:description" content="Return check-out for XLane Rentals: upload four photos of your vehicle at drop-off to record its condition."/>
+<meta property="og:url" content="https://www.xlanerentals.com/check-out.html"/>
+<meta property="og:image" content="https://www.xlanerentals.com/assets/images/social-share.png"/>
+<meta property="og:image:width" content="1731"/>
+<meta property="og:image:height" content="909"/>
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:title" content="Return Check-Out — XLane Rentals"/>
+<meta name="twitter:description" content="Return check-out for XLane Rentals: upload four photos of your vehicle at drop-off to record its condition."/>
+<meta name="twitter:image" content="https://www.xlanerentals.com/assets/images/social-share.png"/>
+<!-- Meta Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '1013097894449447');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=1013097894449447&ev=PageView&noscript=1"
+/></noscript>
+<!-- End Meta Pixel Code -->
+<style>
+  /* Check-in page specific styles (kept local to this page for now) */
+  .ci-hero { padding: 64px 5% 40px; text-align: center; background: var(--slate-bg); }
+  .ci-hero h1 { font-family:'Sora',sans-serif; font-size: 2.1rem; font-weight: 800; color: var(--navy); margin-bottom: 12px; }
+  .ci-hero p { color: var(--text-muted); max-width: 620px; margin: 0 auto; line-height: 1.7; }
+  .ci-wrap { max-width: 760px; margin: -20px auto 0; padding: 0 5% 80px; position: relative; z-index: 2; }
+  .ci-card { background: var(--white); border-radius: var(--radius-lg); box-shadow: var(--shadow-lg); padding: 40px; border: 1px solid var(--border); }
+  .ci-notice {
+    background: rgba(199,68,42,0.07); border: 1px solid rgba(199,68,42,0.25);
+    border-radius: 10px; padding: 16px 18px; display: flex; gap: 12px; align-items: flex-start;
+    margin-bottom: 28px;
+  }
+  .ci-notice-icon { font-size: 1.1rem; margin-top: 1px; flex-shrink: 0; }
+  .ci-notice p { font-size: 0.85rem; color: #8a3320; line-height: 1.6; margin: 0; }
+  .ci-notice p strong { color: #6e2818; }
+  .ci-section-title { font-family:'Sora',sans-serif; font-weight: 700; font-size: 1rem; color: var(--navy); margin: 28px 0 14px; }
+  .ci-section-title:first-of-type { margin-top: 0; }
+  .ci-hint { font-size: 0.8rem; color: var(--text-muted); margin: -8px 0 14px; line-height: 1.6; }
+  .ci-upload {
+    display: block; border: 2px dashed var(--border); border-radius: 10px; padding: 22px;
+    text-align: center; cursor: pointer; transition: all 0.2s; position: relative;
+    overflow: hidden; background: var(--slate-bg);
+  }
+  .ci-upload:hover { border-color: var(--amber); background: rgba(232,160,32,0.05); }
+  .ci-upload.has-file { border-color: var(--success, #1e8a5e); background: rgba(30,138,94,0.05); }
+  .ci-upload input[type="file"] { position: absolute; inset: 0; opacity: 0; cursor: pointer; }
+  .ci-upload-icon { font-size: 1.6rem; margin-bottom: 6px; }
+  .ci-upload-label { font-weight: 600; font-size: 0.85rem; color: var(--navy); }
+  .ci-upload-sub { font-size: 0.76rem; color: var(--text-muted); margin-top: 4px; }
+  .ci-upload-filename { font-size: 0.78rem; color: #1a6644; font-weight: 600; margin-top: 6px; word-break: break-all; }
+  .ci-upload-thumb { max-height: 90px; border-radius: 6px; margin-top: 10px; display: none; }
+  .ci-card-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  @media (max-width: 600px) { .ci-card-grid { grid-template-columns: 1fr; } }
+  .ci-submit-row { margin-top: 32px; padding-top: 24px; border-top: 1px solid var(--border); text-align: center; }
+  .ci-submit-row .btn-primary { width: 100%; justify-content: center; cursor: pointer; border: none; font-family: inherit; }
+  .ci-required { color: #c7442a; }
+
+  /* Check-out page additions */
+  .co-photo-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  @media (max-width: 600px) { .co-photo-grid { gap: 12px; } .ci-upload { padding: 16px 10px; } }
+  .co-diagram { width: 46px; height: 70px; margin: 0 auto 8px; display: block; }
+  .co-diagram .body { fill: #fff; stroke: var(--steel); stroke-width: 2; }
+  .co-diagram .glass { fill: #DCE6EF; }
+  .co-diagram .hl { fill: var(--amber); }
+  .ci-upload.has-file .co-diagram { display: none; }
+  .co-photo-grid .ci-upload-filename { display: none; }
+  .co-photo-grid .ci-upload-thumb { width: 100%; height: 96px; max-height: none; object-fit: cover; margin-top: 8px; }
+  .co-photo-grid .ci-upload.has-file .ci-upload-label { color: #1a6644; }
+  .co-progress { font-size: 0.82rem; color: var(--text-muted); text-align: center; margin-top: 14px; }
+  .co-progress strong { color: var(--navy); }
+  #checkoutSuccess { display: none; text-align: center; padding: 8px 0; }
+  .ci-wrap.co-done { margin-top: 28px; }
+  @media (max-width: 600px) {
+    .ci-wrap.co-done { margin-top: 16px; padding: 0 12px 60px; }
+    .ci-wrap.co-done .ci-card { padding: 24px 18px; }
+    .co-done-icon { width: 52px; height: 52px; font-size: 1.6rem; margin-bottom: 10px; }
+    #checkoutSuccess h2 { font-size: 1.3rem; }
+    .co-review { margin-top: 20px; padding: 22px 16px; }
+  }
+  .co-done-icon { width: 64px; height: 64px; border-radius: 50%; background: rgba(30,138,94,0.1); color: #1e8a5e;
+    display: flex; align-items: center; justify-content: center; font-size: 2rem; margin: 0 auto 14px; }
+  #checkoutSuccess h2 { font-family: 'Sora', sans-serif; font-weight: 800; font-size: 1.5rem; color: var(--navy); margin-bottom: 8px; }
+  #checkoutSuccess > p { color: var(--text-muted); line-height: 1.7; max-width: 480px; margin: 0 auto; font-size: 0.92rem; }
+  .co-review {
+    margin-top: 28px; padding: 28px 24px; border-radius: 14px; border: 1px solid var(--border);
+    background: linear-gradient(180deg, #FFFBEA 0%, #FFFFFF 100%);
+  }
+  .co-stars { font-size: 1.6rem; letter-spacing: 4px; color: #F5B400; margin-bottom: 8px; }
+  .co-review h3 { font-family: 'Sora', sans-serif; font-weight: 800; font-size: 1.2rem; color: var(--navy); margin-bottom: 8px; }
+  .co-review p { font-size: 0.9rem; color: var(--text-body); line-height: 1.65; max-width: 440px; margin: 0 auto 20px; }
+  .co-review-btn {
+    display: inline-flex; align-items: center; justify-content: center; gap: 10px; width: 100%; max-width: 360px;
+    background: var(--navy); color: #fff; font-family: 'Sora', sans-serif; font-weight: 700; font-size: 1rem;
+    padding: 16px 24px; border-radius: 12px; text-decoration: none; box-shadow: 0 8px 22px rgba(10,22,40,0.22);
+    transition: transform .15s ease;
+  }
+  .co-review-btn:hover { transform: translateY(-1px); }
+  .co-review-btn svg { width: 20px; height: 20px; flex-shrink: 0; }
+  .co-skip { display: inline-block; margin-top: 14px; font-size: 0.82rem; color: var(--text-muted); text-decoration: underline; }
+</style>
+</head>
+<body>
+<nav>
+  <a class="nav-logo" href="index.html">
+    <img src="assets/images/logo.png" alt="XLane Rentals" class="nav-logo-img">
+  </a>
+  <div class="nav-links" id="navLinks">
+    <a href="index.html">Home</a>
+    <a href="book.html">Book Now</a>
+    <a href="check-in.html">Check-In</a>
+    <a href="about.html">About Us</a>
+    <a href="contact.html">Contact</a>
+    <a class="nav-cta-gold" href="members.html">Members</a>
+    <div class="nav-social">
+      <a class="social-icon instagram" href="https://www.instagram.com/xlanerentals/" target="_blank" rel="noopener" aria-label="Follow us on Instagram"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.16c3.2 0 3.58.01 4.85.07 1.17.05 1.8.25 2.23.41.56.22.96.48 1.38.9.42.42.68.82.9 1.38.16.42.36 1.06.41 2.23.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.05 1.17-.25 1.8-.41 2.23-.22.56-.48.96-.9 1.38-.42.42-.82.68-1.38.9-.42.16-1.06.36-2.23.41-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-1.17-.05-1.8-.25-2.23-.41a3.72 3.72 0 0 1-1.38-.9 3.72 3.72 0 0 1-.9-1.38c-.16-.42-.36-1.06-.41-2.23-.06-1.27-.07-1.65-.07-4.85s.01-3.58.07-4.85c.05-1.17.25-1.8.41-2.23.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.42-.16 1.06-.36 2.23-.41C8.42 2.17 8.8 2.16 12 2.16M12 0C8.74 0 8.33.01 7.05.07 5.78.13 4.9.33 4.14.63c-.79.31-1.46.72-2.13 1.38C1.35 2.68.94 3.35.63 4.14.33 4.9.13 5.78.07 7.05.01 8.33 0 8.74 0 12s.01 3.67.07 4.95c.06 1.27.26 2.15.56 2.91.31.79.72 1.46 1.38 2.13.67.66 1.34 1.07 2.13 1.38.76.3 1.64.5 2.91.56C8.33 23.99 8.74 24 12 24s3.67-.01 4.95-.07c1.27-.06 2.15-.26 2.91-.56.79-.31 1.46-.72 2.13-1.38.66-.67 1.07-1.34 1.38-2.13.3-.76.5-1.64.56-2.91.06-1.28.07-1.69.07-4.95s-.01-3.67-.07-4.95c-.06-1.27-.26-2.15-.56-2.91a5.88 5.88 0 0 0-1.38-2.13A5.88 5.88 0 0 0 19.86.63c-.76-.3-1.64-.5-2.91-.56C15.67.01 15.26 0 12 0Zm0 5.84a6.16 6.16 0 1 0 0 12.32 6.16 6.16 0 0 0 0-12.32ZM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8Zm6.41-10.85a1.44 1.44 0 1 0 0 2.88 1.44 1.44 0 0 0 0-2.88Z"/></svg></a>
+      <a class="social-icon facebook" href="https://www.facebook.com/profile.php?id=61575426762100" target="_blank" rel="noopener" aria-label="Follow us on Facebook"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M24 12.07C24 5.4 18.63 0 12 0S0 5.4 0 12.07C0 18.1 4.39 23.1 10.13 24v-8.44H7.08v-3.49h3.05V9.41c0-3.02 1.79-4.69 4.53-4.69 1.31 0 2.68.24 2.68.24v2.97h-1.51c-1.49 0-1.96.93-1.96 1.89v2.25h3.33l-.53 3.49h-2.8V24C19.61 23.1 24 18.1 24 12.07Z"/></svg></a>
+    </div>
+    <a href="book.html" class="nav-cta">Reserve a Car →</a>
+  </div>
+  <div class="hamburger" id="hamburger" onclick="toggleMenu()">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+
+<div class="page">
+  <div class="ci-hero">
+    <h1>Return Check-Out</h1>
+    <p>Before you hand over the keys, take one photo from each side of the car. Your photos are time-stamped and saved with your rental as a record of the vehicle's condition at return. It takes about a minute.</p>
+  </div>
+
+  <div class="ci-wrap">
+    <div class="ci-card">
+
+      <form id="checkoutForm">
+
+        <div class="ci-section-title">1. Renter Information</div>
+        <div class="form-group form-full" style="margin-bottom: 22px;">
+          <label for="fullName">Full Name <span class="ci-required">*</span></label>
+          <input type="text" id="fullName" name="fullName" placeholder="Name on the reservation" required>
+        </div>
+
+        <div class="ci-section-title">2. Vehicle Photos</div>
+        <p class="ci-hint">Step back so the whole side of the car fits in the frame, and make sure the photo is clear and well lit.</p>
+        <div class="co-photo-grid">
+          <label class="ci-upload" id="photoFrontUpload">
+            <input type="file" id="photoFront" name="photoFront" accept="image/*" capture="environment" required onchange="handleFile(this,'photoFrontUpload')">
+            <svg class="co-diagram" viewBox="0 0 46 70" aria-hidden="true"><rect class="body" x="8" y="7" width="30" height="56" rx="10"/><rect class="glass" x="12" y="17" width="22" height="10" rx="3"/><rect class="glass" x="12" y="46" width="22" height="8" rx="3"/><rect class="hl" x="10" y="0" width="26" height="6" rx="3"/></svg>
+            <div class="ci-upload-label">Front</div>
+            <div class="ci-upload-sub">Tap to take photo</div>
+            <div class="ci-upload-filename"></div>
+            <img class="ci-upload-thumb">
+          </label>
+          <label class="ci-upload" id="photoBackUpload">
+            <input type="file" id="photoBack" name="photoBack" accept="image/*" capture="environment" required onchange="handleFile(this,'photoBackUpload')">
+            <svg class="co-diagram" viewBox="0 0 46 70" aria-hidden="true"><rect class="body" x="8" y="7" width="30" height="56" rx="10"/><rect class="glass" x="12" y="17" width="22" height="10" rx="3"/><rect class="glass" x="12" y="46" width="22" height="8" rx="3"/><rect class="hl" x="10" y="64" width="26" height="6" rx="3"/></svg>
+            <div class="ci-upload-label">Back</div>
+            <div class="ci-upload-sub">Tap to take photo</div>
+            <div class="ci-upload-filename"></div>
+            <img class="ci-upload-thumb">
+          </label>
+          <label class="ci-upload" id="photoDriverUpload">
+            <input type="file" id="photoDriver" name="photoDriver" accept="image/*" capture="environment" required onchange="handleFile(this,'photoDriverUpload')">
+            <svg class="co-diagram" viewBox="0 0 46 70" aria-hidden="true"><rect class="body" x="8" y="7" width="30" height="56" rx="10"/><rect class="glass" x="12" y="17" width="22" height="10" rx="3"/><rect class="glass" x="12" y="46" width="22" height="8" rx="3"/><rect class="hl" x="0" y="16" width="6" height="38" rx="3"/></svg>
+            <div class="ci-upload-label">Driver Side</div>
+            <div class="ci-upload-sub">Tap to take photo</div>
+            <div class="ci-upload-filename"></div>
+            <img class="ci-upload-thumb">
+          </label>
+          <label class="ci-upload" id="photoPassengerUpload">
+            <input type="file" id="photoPassenger" name="photoPassenger" accept="image/*" capture="environment" required onchange="handleFile(this,'photoPassengerUpload')">
+            <svg class="co-diagram" viewBox="0 0 46 70" aria-hidden="true"><rect class="body" x="8" y="7" width="30" height="56" rx="10"/><rect class="glass" x="12" y="17" width="22" height="10" rx="3"/><rect class="glass" x="12" y="46" width="22" height="8" rx="3"/><rect class="hl" x="40" y="16" width="6" height="38" rx="3"/></svg>
+            <div class="ci-upload-label">Passenger Side</div>
+            <div class="ci-upload-sub">Tap to take photo</div>
+            <div class="ci-upload-filename"></div>
+            <img class="ci-upload-thumb">
+          </label>
+        </div>
+        <div class="co-progress" id="coProgress"><strong>0 of 4</strong> photos added</div>
+
+        <div class="ci-submit-row">
+          <button type="submit" class="btn-primary">Submit Return Photos →</button>
+          <div class="form-nav-left" style="margin-top:14px;">Your photos are stored privately and used only as a record of your rental.</div>
+        </div>
+
+      </form>
+
+      <div id="checkoutSuccess">
+        <div class="co-done-icon">✓</div>
+        <h2>You're all set!</h2>
+        <p>Your return photos have been received and saved with your rental. Thank you for driving with XLane Rentals.</p>
+
+        <div class="co-review">
+          <div class="co-stars" aria-hidden="true">★★★★★</div>
+          <h3>How was your experience?</h3>
+          <p>We're a small, local Long Island City business, and every Google review helps other drivers find us. It takes less than a minute.</p>
+          <a class="co-review-btn" id="reviewBtn" href="https://g.page/r/CZIqz6OZYMkXEAE/review" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="#4285F4" d="M22.6 12.2c0-.8-.1-1.5-.2-2.2H12v4.2h5.9c-.3 1.4-1 2.5-2.2 3.3v2.7h3.6c2-1.9 3.3-4.7 3.3-8z"/><path fill="#34A853" d="M12 23c3 0 5.5-1 7.3-2.7l-3.6-2.7c-1 .7-2.2 1.1-3.7 1.1-2.9 0-5.3-1.9-6.2-4.5H2.1v2.8C3.9 20.6 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.8 14.2c-.2-.7-.3-1.4-.3-2.2s.1-1.5.3-2.2V7H2.1C1.4 8.5 1 10.2 1 12s.4 3.5 1.1 5l3.7-2.8z"/><path fill="#EA4335" d="M12 5.4c1.6 0 3.1.6 4.2 1.7l3.2-3.2C17.5 2.1 15 1 12 1 7.7 1 3.9 3.4 2.1 7l3.7 2.8c.9-2.6 3.3-4.4 6.2-4.4z"/></svg>
+            Leave a Google Review
+          </a>
+          <div><a class="co-skip" href="index.html">No thanks</a></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-social-row">
+        <a class="social-icon instagram" href="https://www.instagram.com/xlanerentals/" target="_blank" rel="noopener" aria-label="Follow us on Instagram"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.16c3.2 0 3.58.01 4.85.07 1.17.05 1.8.25 2.23.41.56.22.96.48 1.38.9.42.42.68.82.9 1.38.16.42.36 1.06.41 2.23.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.05 1.17-.25 1.8-.41 2.23-.22.56-.48.96-.9 1.38-.42.42-.82.68-1.38.9-.42.16-1.06.36-2.23.41-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-1.17-.05-1.8-.25-2.23-.41a3.72 3.72 0 0 1-1.38-.9 3.72 3.72 0 0 1-.9-1.38c-.16-.42-.36-1.06-.41-2.23-.06-1.27-.07-1.65-.07-4.85s.01-3.58.07-4.85c.05-1.17.25-1.8.41-2.23.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.42-.16 1.06-.36 2.23-.41C8.42 2.17 8.8 2.16 12 2.16M12 0C8.74 0 8.33.01 7.05.07 5.78.13 4.9.33 4.14.63c-.79.31-1.46.72-2.13 1.38C1.35 2.68.94 3.35.63 4.14.33 4.9.13 5.78.07 7.05.01 8.33 0 8.74 0 12s.01 3.67.07 4.95c.06 1.27.26 2.15.56 2.91.31.79.72 1.46 1.38 2.13.67.66 1.34 1.07 2.13 1.38.76.3 1.64.5 2.91.56C8.33 23.99 8.74 24 12 24s3.67-.01 4.95-.07c1.27-.06 2.15-.26 2.91-.56.79-.31 1.46-.72 2.13-1.38.66-.67 1.07-1.34 1.38-2.13.3-.76.5-1.64.56-2.91.06-1.28.07-1.69.07-4.95s-.01-3.67-.07-4.95c-.06-1.27-.26-2.15-.56-2.91a5.88 5.88 0 0 0-1.38-2.13A5.88 5.88 0 0 0 19.86.63c-.76-.3-1.64-.5-2.91-.56C15.67.01 15.26 0 12 0Zm0 5.84a6.16 6.16 0 1 0 0 12.32 6.16 6.16 0 0 0 0-12.32ZM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8Zm6.41-10.85a1.44 1.44 0 1 0 0 2.88 1.44 1.44 0 0 0 0-2.88Z"/></svg></a>
+        <a class="social-icon facebook" href="https://www.facebook.com/profile.php?id=61575426762100" target="_blank" rel="noopener" aria-label="Follow us on Facebook"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M24 12.07C24 5.4 18.63 0 12 0S0 5.4 0 12.07C0 18.1 4.39 23.1 10.13 24v-8.44H7.08v-3.49h3.05V9.41c0-3.02 1.79-4.69 4.53-4.69 1.31 0 2.68.24 2.68.24v2.97h-1.51c-1.49 0-1.96.93-1.96 1.89v2.25h3.33l-.53 3.49h-2.8V24C19.61 23.1 24 18.1 24 12.07Z"/></svg></a>
+      </div>
+      <div class="footer-transit">
+        <div class="footer-transit-badges">
+          <span class="mta-bullet line-e">E</span>
+          <span class="mta-bullet line-f">F</span>
+          <span class="mta-bullet line-m">M</span>
+          <span class="mta-bullet line-n">N</span>
+          <span class="mta-bullet line-r">R</span>
+          <span class="mta-bullet line-w">W</span>
+          <span class="mta-bullet line-7">7</span>
+        </div>
+        <span class="footer-transit-label">2 min walk to Queens Plaza</span>
+      </div>
+      <div class="footer-bottom" style="border-top:none;padding-top:0">
+        <div class="footer-copy">© 2026 XLane Rentals · Proudly serving Long Island City, NYC</div>
+        <div class="footer-legal">
+          <a href="members.html" style="color:var(--steel)">Membership</a>
+          <a href="privacy.html" style="color:var(--steel)">Privacy</a>
+          <a href="terms.html" style="color:var(--steel)">Terms</a>
+          <a href="insurance-disclosure.html" style="color:var(--steel)">Insurance Disclosure</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+</div>
+
+<script src="js/script.js"></script>
+<script>
+  function handleFile(input, boxId) {
+    const box = document.getElementById(boxId);
+    const file = input.files && input.files[0];
+    if (!file) return;
+    box.classList.add('has-file');
+    var lbl = box.querySelector('.ci-upload-label');
+    if (!lbl.dataset.name) lbl.dataset.name = lbl.textContent;
+    lbl.textContent = lbl.dataset.name + ' ✓';
+    box.querySelector('.ci-upload-sub').textContent = 'Tap to retake';
+    const reader = new FileReader();
+    reader.onload = function(e) {
+      const thumb = box.querySelector('.ci-upload-thumb');
+      thumb.src = e.target.result;
+      thumb.style.display = 'inline-block';
+    };
+    reader.readAsDataURL(file);
+    updateProgress();
+  }
+
+  var PHOTO_IDS = ['photoFront', 'photoBack', 'photoDriver', 'photoPassenger'];
+  function updateProgress() {
+    var n = PHOTO_IDS.filter(function(id) {
+      var el = document.getElementById(id); return el.files && el.files.length;
+    }).length;
+    document.getElementById('coProgress').innerHTML = '<strong>' + n + ' of 4</strong> photos added';
+  }
+
+  // Same Web App as the Check-In page. The backend routes check-out
+  // submissions (formType: 'checkout') to the "Check-Outs" sheet.
+  var SUBMIT_URL = 'https://script.google.com/macros/s/AKfycby2RFzCYRt9yh5nO04PoR-2SUIfsz-1QD_FQHQr5v4foA0YjcKKFPpXOyoYEc-rAYD1/exec';
+
+  // Resizes/compresses a photo before it's base64-encoded and uploaded.
+  // Raw iPhone camera photos can be 3-8MB each; three of those as base64
+  // in one request is what was causing "Load failed" on cellular. Capping
+  // the longest side at 1600px and re-encoding as JPEG at 0.72 quality
+  // brings each photo down to a few hundred KB while staying easily
+  // legible for manual verification.
+  var MAX_DIMENSION = 1600;
+  var JPEG_QUALITY = 0.72;
+
+  function fileToBase64(file) {
+    return new Promise(function(resolve, reject) {
+      if (!file) { resolve(''); return; }
+
+      var reader = new FileReader();
+      reader.onload = function(e) {
+        var img = new Image();
+        img.onload = function() {
+          var width = img.naturalWidth;
+          var height = img.naturalHeight;
+
+          if (width > height && width > MAX_DIMENSION) {
+            height = Math.round(height * (MAX_DIMENSION / width));
+            width = MAX_DIMENSION;
+          } else if (height >= width && height > MAX_DIMENSION) {
+            width = Math.round(width * (MAX_DIMENSION / height));
+            height = MAX_DIMENSION;
+          }
+
+          var canvas = document.createElement('canvas');
+          canvas.width = width;
+          canvas.height = height;
+          var ctx = canvas.getContext('2d');
+          ctx.drawImage(img, 0, 0, width, height);
+
+          try {
+            resolve(canvas.toDataURL('image/jpeg', JPEG_QUALITY));
+          } catch (drawErr) {
+            // Canvas export failed (e.g. tainted canvas) — fall back to
+            // the original file rather than blocking submission entirely.
+            resolve(e.target.result);
+          }
+        };
+        img.onerror = function() {
+          // Couldn't decode as an image (unsupported format) — fall back
+          // to the original, uncompressed file.
+          resolve(e.target.result);
+        };
+        img.src = e.target.result;
+      };
+      reader.onerror = reject;
+      reader.readAsDataURL(file);
+    });
+  }
+
+  document.getElementById('checkoutForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+
+    var submitBtn = document.querySelector('#checkoutForm button[type="submit"]');
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Uploading photos…';
+
+    var fullName = document.getElementById('fullName').value;
+    var files = PHOTO_IDS.map(function(id) { return document.getElementById(id).files[0]; });
+
+    Promise.all(files.map(fileToBase64)).then(function(results) {
+      var payload = {
+        formType: 'checkout',
+        fullName: fullName,
+        photoFront: results[0],
+        photoBack: results[1],
+        photoDriver: results[2],
+        photoPassenger: results[3]
+      };
+
+      return fetch(SUBMIT_URL, {
+        method: 'POST',
+        headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+        body: JSON.stringify(payload)
+      }).then(function(response) {
+        return response.text().then(function(text) {
+          var result;
+          try { result = JSON.parse(text); } catch (parseErr) {
+            throw new Error('Unexpected response from server: ' + text.slice(0, 200));
+          }
+          if (result.status !== 'ok') {
+            throw new Error(result.message || 'Server reported an error.');
+          }
+          return result;
+        });
+      });
+    }).then(function() {
+      document.getElementById('checkoutForm').style.display = 'none';
+      document.querySelector('.ci-hero').style.display = 'none';
+      document.querySelector('.ci-wrap').classList.add('co-done');
+      document.getElementById('checkoutSuccess').style.display = 'block';
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+      if (typeof gtag === 'function') gtag('event', 'checkout_photos_submitted');
+    }).catch(function(err) {
+      submitBtn.disabled = false;
+      submitBtn.textContent = 'Submit Return Photos →';
+      alert('Something went wrong uploading your photos: ' + err.message + '\n\nPlease try again or contact XLane Rentals directly.');
+      console.error(err);
+    });
+  });
+
+  document.getElementById('reviewBtn').addEventListener('click', function() {
+    if (typeof gtag === 'function') gtag('event', 'google_review_click');
+  });
+</script>
+</body>
+</html>
