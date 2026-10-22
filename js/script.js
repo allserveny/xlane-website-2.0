@@ -32,7 +32,7 @@
 
   // Meta Pixel: treat clicks on any "Book Now / Reserve a Car" link as a Lead
   document.addEventListener('click', function(e) {
-    var link = e.target.closest('a[href="book.html"]');
+    var link = e.target.closest('a[href="/book"], a[href="book.html"]');
     if (link && typeof fbq !== 'undefined') {
       fbq('track', 'Lead', { value: 0, currency: 'USD' });
     }
