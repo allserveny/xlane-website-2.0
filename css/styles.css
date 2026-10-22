@@ -1038,3 +1038,14 @@
     .hero-v2 .hero-booking { max-width: 960px; }
     .lp-booking { max-width: 960px; }
   }
+
+  /* ── Booking widget: wider on desktop (2026-10-22, trial) ──
+        Widget area goes from ~894px to ~962px: still under HQ's ~992px
+        breakpoint, so Step 1 keeps its half-width fields. Desktop only.
+        To undo, delete this whole block. ── */
+  @media (min-width: 901px) {
+    .hero-v2 .hero-booking { max-width: 1010px; padding-left: 24px; padding-right: 24px; }
+    .lp-booking { max-width: 1010px; padding-left: 24px; padding-right: 24px; }
+    .book-widget-wrap { max-width: 1058px !important; padding-left: 24px !important; padding-right: 24px !important; }
+    .book-widget-card { padding: 32px 24px !important; }
+  }
