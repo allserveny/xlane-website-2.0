@@ -25,7 +25,8 @@ var CHECKIN_HEADERS = [
 var CHECKOUT_FOLDER_NAME = 'XLane Check-Out Photos';
 var CHECKOUT_SHEET_NAME = 'Check-Outs';
 var CHECKOUT_HEADERS = [
-  'Timestamp', 'Full Name', 'Front', 'Back', 'Driver Side', 'Passenger Side', 'Folder Link'
+  'Timestamp', 'Full Name', 'Front', 'Back', 'Driver Side', 'Passenger Side', 'Folder Link',
+  'Dashboard (Mileage & Fuel)'
 ];
 
 function doPost(e) {
@@ -80,8 +81,10 @@ function handleCheckout(data) {
   var backUrl = saveFile(submissionFolder, data.photoBack, 'back');
   var driverUrl = saveFile(submissionFolder, data.photoDriver, 'driver-side');
   var passengerUrl = saveFile(submissionFolder, data.photoPassenger, 'passenger-side');
+  var dashboardUrl = saveFile(submissionFolder, data.photoDashboard, 'dashboard-mileage-fuel');
 
   var sheet = getOrCreateSheet(CHECKOUT_SHEET_NAME, CHECKOUT_HEADERS);
+  ensureHeaders(sheet, CHECKOUT_HEADERS);
   sheet.appendRow([
     timestamp,
     data.fullName,
@@ -89,7 +92,8 @@ function handleCheckout(data) {
     backUrl,
     driverUrl,
     passengerUrl,
-    submissionFolder.getUrl()
+    submissionFolder.getUrl(),
+    dashboardUrl
   ]);
 
   return jsonResponse({ status: 'ok' });
@@ -123,6 +127,17 @@ function getOrCreateSheet(name, headers) {
     sheet.setFrozenRows(1);
   }
   return sheet;
+}
+
+// Adds any header cells that are missing (e.g. the Dashboard column added
+// after the Check-Outs tab was first created). Existing rows are untouched.
+function ensureHeaders(sheet, headers) {
+  var current = sheet.getRange(1, 1, 1, headers.length).getValues()[0];
+  for (var i = 0; i < headers.length; i++) {
+    if (current[i] !== headers[i]) {
+      sheet.getRange(1, i + 1).setValue(headers[i]);
+    }
+  }
 }
 
 function jsonResponse(obj) {

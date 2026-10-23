@@ -96,6 +96,12 @@ src="https://www.facebook.com/tr?id=1013097894449447&ev=PageView&noscript=1"
   .co-photo-grid .ci-upload-filename { display: none; }
   .co-photo-grid .ci-upload-thumb { width: 100%; height: 96px; max-height: none; object-fit: cover; margin-top: 8px; }
   .co-photo-grid .ci-upload.has-file .ci-upload-label { color: #1a6644; }
+  .co-gauge { width: 64px; height: 44px; }
+  .co-gauge .body { fill: none; stroke: var(--steel); stroke-width: 4; stroke-linecap: round; }
+  .co-gauge .hl-line { stroke: var(--amber); stroke-width: 4; stroke-linecap: round; }
+  .co-dash .ci-upload-filename { display: none; }
+  .co-dash .ci-upload-thumb { width: 100%; max-width: 360px; height: 150px; max-height: none; object-fit: cover; margin-top: 8px; }
+  .co-dash.has-file .ci-upload-label { color: #1a6644; }
   .co-progress { font-size: 0.82rem; color: var(--text-muted); text-align: center; margin-top: 14px; }
   .co-progress strong { color: var(--navy); }
   #checkoutSuccess { display: none; text-align: center; padding: 8px 0; }
@@ -126,6 +132,22 @@ src="https://www.facebook.com/tr?id=1013097894449447&ev=PageView&noscript=1"
   }
   .co-review-btn:hover { transform: translateY(-1px); }
   .co-review-btn svg { width: 20px; height: 20px; flex-shrink: 0; }
+  .co-refer { margin-top: 16px; padding: 24px 20px; border-radius: 14px; border: 1px solid rgba(61,191,191,0.35);
+    background: linear-gradient(180deg, rgba(61,191,191,0.10) 0%, #FFFFFF 100%); }
+  .co-refer-badge { display: inline-block; font-size: 0.72rem; font-weight: 700; letter-spacing: .06em; text-transform: uppercase;
+    color: #1F7F7F; background: rgba(61,191,191,0.15); padding: 4px 12px; border-radius: 999px; margin-bottom: 10px; }
+  .co-refer h3 { font-family: 'Sora', sans-serif; font-weight: 800; font-size: 1.2rem; color: var(--navy); margin-bottom: 8px; }
+  .co-refer > p { font-size: 0.9rem; color: var(--text-body); line-height: 1.65; max-width: 440px; margin: 0 auto 18px; }
+  .co-code { font-family: 'Sora', sans-serif; letter-spacing: .04em; background: #fff; border: 1px dashed var(--amber); padding: 1px 7px; border-radius: 6px; }
+  .co-share-btn { display: inline-flex; align-items: center; justify-content: center; gap: 10px; width: 100%; max-width: 360px;
+    background: var(--amber); color: var(--navy); font-family: 'Sora', sans-serif; font-weight: 700; font-size: 1rem;
+    padding: 15px 24px; border-radius: 12px; border: 0; cursor: pointer; box-shadow: 0 8px 22px rgba(61,191,191,0.3); }
+  .co-share-btn svg { width: 20px; height: 20px; fill: none; stroke: currentColor; stroke-width: 2.2; stroke-linecap: round; stroke-linejoin: round; }
+  .co-share-fallback[hidden] { display: none; }
+  .co-share-fallback { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; margin-top: 12px; }
+  .co-share-fallback a, .co-share-fallback button { font-family: inherit; font-size: 0.84rem; font-weight: 600; color: var(--navy);
+    background: #fff; border: 1px solid var(--border); border-radius: 999px; padding: 8px 14px; text-decoration: none; cursor: pointer; }
+  .co-refer-fine { font-size: 0.76rem !important; color: var(--text-muted) !important; margin: 14px auto 0 !important; }
   .co-skip { display: inline-block; margin-top: 14px; font-size: 0.82rem; color: var(--text-muted); text-decoration: underline; }
 </style>
 </head>
@@ -155,7 +177,7 @@ src="https://www.facebook.com/tr?id=1013097894449447&ev=PageView&noscript=1"
 <div class="page">
   <div class="ci-hero">
     <h1>Return Check-Out</h1>
-    <p>Before you hand over the keys, take one photo from each side of the car. Your photos are time-stamped and saved with your rental as a record of the vehicle's condition at return. It takes about a minute.</p>
+    <p>Before you hand over the keys, take one photo from each side of the car and one of the dashboard showing the mileage and fuel level. Your photos are time-stamped and saved with your rental as a record of the vehicle's condition at return. It takes about a minute.</p>
   </div>
 
   <div class="ci-wrap">
@@ -205,7 +227,18 @@ src="https://www.facebook.com/tr?id=1013097894449447&ev=PageView&noscript=1"
             <img class="ci-upload-thumb">
           </label>
         </div>
-        <div class="co-progress" id="coProgress"><strong>0 of 4</strong> photos added</div>
+
+        <div class="ci-section-title" style="margin-top:28px;">3. Dashboard Photo</div>
+        <p class="ci-hint">Turn the car on so the dashboard lights up, then take one clear photo where both the <strong>mileage</strong> and the <strong>fuel level</strong> are readable.</p>
+        <label class="ci-upload co-dash" id="photoDashboardUpload">
+          <input type="file" id="photoDashboard" name="photoDashboard" accept="image/*" capture="environment" required onchange="handleFile(this,'photoDashboardUpload')">
+          <svg class="co-diagram co-gauge" viewBox="0 0 64 44" aria-hidden="true"><path class="body" d="M6 38a26 26 0 0 1 52 0"/><path class="hl-line" d="M32 38 46 18"/><circle class="hl" cx="32" cy="38" r="4"/><rect class="glass" x="22" y="27" width="20" height="5" rx="1.5"/></svg>
+          <div class="ci-upload-label">Dashboard: Mileage &amp; Fuel</div>
+          <div class="ci-upload-sub">Tap to take photo</div>
+          <div class="ci-upload-filename"></div>
+          <img class="ci-upload-thumb">
+        </label>
+        <div class="co-progress" id="coProgress"><strong>0 of 5</strong> photos added</div>
 
         <div class="ci-submit-row">
           <button type="submit" class="btn-primary">Submit Return Photos →</button>
@@ -217,7 +250,7 @@ src="https://www.facebook.com/tr?id=1013097894449447&ev=PageView&noscript=1"
       <div id="checkoutSuccess">
         <div class="co-done-icon">✓</div>
         <h2>You're all set!</h2>
-        <p>Your return photos have been received and saved with your rental. Thank you for driving with XLane Rentals.</p>
+        <p>Your return photos are saved with your rental. Thanks for driving with XLane Rentals!</p>
 
         <div class="co-review">
           <div class="co-stars" aria-hidden="true">★★★★★</div>
@@ -228,6 +261,23 @@ src="https://www.facebook.com/tr?id=1013097894449447&ev=PageView&noscript=1"
             Leave a Google Review
           </a>
           <div><a class="co-skip" href="/">No thanks</a></div>
+        </div>
+
+        <div class="co-refer">
+          <div class="co-refer-badge">🎁 Refer a Friend</div>
+          <h3>Give 15% off, get $20 back</h3>
+          <p>Your friend gets <strong>15% off their first rental</strong> with code <strong class="co-code">REFER15</strong>. Once they complete their rental, <strong>you get $20 cashback</strong>.</p>
+          <button type="button" class="co-share-btn" id="shareBtn">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12v7a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-7"/><path d="M16 6l-4-4-4 4"/><path d="M12 2v13"/></svg>
+            Refer a Friend
+          </button>
+          <div class="co-share-fallback" id="shareFallback" hidden>
+            <a id="shareSms" href="#">💬 Text</a>
+            <a id="shareWa" href="#" target="_blank" rel="noopener">🟢 WhatsApp</a>
+            <a id="shareEmail" href="#">✉️ Email</a>
+            <button type="button" id="shareCopy">🔗 Copy message</button>
+          </div>
+          <p class="co-refer-fine">Make sure your friend mentions your name when they book so we know to send you your $20.</p>
         </div>
       </div>
 
@@ -286,12 +336,12 @@ src="https://www.facebook.com/tr?id=1013097894449447&ev=PageView&noscript=1"
     updateProgress();
   }
 
-  var PHOTO_IDS = ['photoFront', 'photoBack', 'photoDriver', 'photoPassenger'];
+  var PHOTO_IDS = ['photoFront', 'photoBack', 'photoDriver', 'photoPassenger', 'photoDashboard'];
   function updateProgress() {
     var n = PHOTO_IDS.filter(function(id) {
       var el = document.getElementById(id); return el.files && el.files.length;
     }).length;
-    document.getElementById('coProgress').innerHTML = '<strong>' + n + ' of 4</strong> photos added';
+    document.getElementById('coProgress').innerHTML = '<strong>' + n + ' of ' + PHOTO_IDS.length + '</strong> photos added';
   }
 
   // Same Web App as the Check-In page. The backend routes check-out
@@ -369,7 +419,8 @@ src="https://www.facebook.com/tr?id=1013097894449447&ev=PageView&noscript=1"
         photoFront: results[0],
         photoBack: results[1],
         photoDriver: results[2],
-        photoPassenger: results[3]
+        photoPassenger: results[3],
+        photoDashboard: results[4]
       };
 
       return fetch(SUBMIT_URL, {
@@ -400,6 +451,33 @@ src="https://www.facebook.com/tr?id=1013097894449447&ev=PageView&noscript=1"
       submitBtn.textContent = 'Submit Return Photos →';
       alert('Something went wrong uploading your photos: ' + err.message + '\n\nPlease try again or contact XLane Rentals directly.');
       console.error(err);
+    });
+  });
+
+  // ── Refer a Friend share ──
+  function referMessage() {
+    var first = (document.getElementById('fullName').value || '').trim().split(/\s+/)[0];
+    var who = first ? 'mention ' + first + ' referred you' : 'mention who referred you';
+    return 'Hey! I rented from XLane Rentals in Long Island City. Use code REFER15 for 15% off your first rental, and ' + who + ' when you book: https://www.xlanerentals.com';
+  }
+  document.getElementById('shareBtn').addEventListener('click', function() {
+    var text = referMessage();
+    if (typeof gtag === 'function') gtag('event', 'refer_friend_click');
+    if (navigator.share) {
+      navigator.share({ title: 'XLane Rentals', text: text }).catch(function() {});
+      return;
+    }
+    var enc = encodeURIComponent(text);
+    document.getElementById('shareSms').href = 'sms:?&body=' + enc;
+    document.getElementById('shareWa').href = 'https://wa.me/?text=' + enc;
+    document.getElementById('shareEmail').href = 'mailto:?subject=' + encodeURIComponent('15% off at XLane Rentals') + '&body=' + enc;
+    document.getElementById('shareFallback').hidden = false;
+  });
+  document.getElementById('shareCopy').addEventListener('click', function() {
+    var btn = this;
+    navigator.clipboard.writeText(referMessage()).then(function() {
+      btn.textContent = '✓ Copied';
+      setTimeout(function() { btn.textContent = '🔗 Copy message'; }, 2000);
     });
   });
 
