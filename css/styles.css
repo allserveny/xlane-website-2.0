@@ -1049,3 +1049,12 @@
     .book-widget-wrap { max-width: 1058px !important; padding-left: 24px !important; padding-right: 24px !important; }
     .book-widget-card { padding: 32px 24px !important; }
   }
+
+  /* ── Home hero trust indicators (2026-11-20) ── */
+  .hero-trust-v2 .hero-trust-ico {
+    display: inline-flex; align-items: center; justify-content: center; flex-shrink: 0;
+    width: 30px; height: 30px; border-radius: 50%; font-size: 0.95rem; line-height: 1;
+    background: rgba(61,191,191,0.12); border: 1px solid rgba(61,191,191,0.45);
+  }
+  .hero-trust-v2 .hero-trust-item { color: rgba(255,255,255,0.85); font-weight: 500; }
+  @media (max-width: 900px) { .hero-trust-v2 { row-gap: 10px; } }
