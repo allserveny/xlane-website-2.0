@@ -1058,3 +1058,12 @@
   }
   .hero-trust-v2 .hero-trust-item { color: rgba(255,255,255,0.85); font-weight: 500; }
   @media (max-width: 900px) { .hero-trust-v2 { row-gap: 10px; } }
+
+/* ── How It Works: requirements box + mid-page CTA (2026-11-23) ── */
+.hiw-needs { margin: 32px 0 0; max-width: 760px; background: #fff; border: 1px solid rgba(61,191,191,0.45); border-radius: 14px; padding: 22px 26px; text-align: left; }
+.hiw-needs-title { font-family: 'Sora', sans-serif; font-weight: 700; font-size: 1rem; color: var(--navy); margin-bottom: 10px; }
+.hiw-needs ul { margin: 0; padding-left: 20px; display: grid; grid-template-columns: 1fr 1fr; gap: 6px 24px; }
+.hiw-needs li { font-size: 0.9rem; color: var(--text-muted); line-height: 1.55; }
+.hiw-needs-note { margin-top: 12px; font-weight: 600; font-size: 0.9rem; color: #2a9d9d; }
+.hiw-mid-cta { text-align: center; margin-top: 40px; }
+@media (max-width: 700px) { .hiw-needs ul { grid-template-columns: 1fr; } .hiw-needs { padding: 18px; } }
